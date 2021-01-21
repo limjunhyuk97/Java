@@ -123,8 +123,53 @@ public class FOO{
 
 }
 ```
+
+### 4. 값의 입출력
+
+ - 출력
+   - System.out.println()
+   - System.out.print()
+   - System.out.printf()
+   
+ - 입력
+   - System.in.read()
+   - **Scanner scanner = new Scanner(System.in);**
+     - 스캐너 객체 생성...!
+     - System.in은 입력값을 byte 단위로 읽어들이는 것을 의미함
+     - scanner.next() : 다음 단어, 공백 기준
+     - scanner.nextline() : 다음 문장, 개행문자 기준
+     - scanner.nextInt() : 다음 정수
+     - scanner.nextDouble()...
+
+```java
+
+import java.util.Scanner;
+// java.util 패키지에서 Scanner 외부 클래스를 Import하는 것이다.
+
+public class FOO{
+  public static void main(String[] args){
   
+    Scanner scanner = new Scanner(System.in);
+    // cpp에서 객체 생성하는 것과 상당히 유사한 느낌이다..!
+    // Scanner 클래스를 통해서 scanner라는 객체를 생성하는 과정이다.
+    String inputString;
+    
+    while(true){
+      inputString = scanner.nextline();
+      // scanner 객체 안의 nextline() 메소드를 사용하는 것이다.
+      
+      if(inputString.equals("q")){
+        break;
+      }
+      // string 객체는 객체간의 동등비교를 할 때 .equals()하는 내부 메소드를 사용한다.
+      // 기본 자료형들은 == 동등비교연산을 통해 동등비교를 수행한다.
+      
+    }
   
+  }
+
+}
+```
   
   
   
