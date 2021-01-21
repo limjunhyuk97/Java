@@ -40,3 +40,93 @@ long balance = 30000000000L
     - **기본적으로 컴파일러는 실수 리터럴을 double형으로 알아먹으니, float형에 저장하면 컴파일 에러가 발생한다.**
     - float형에 저장하고자 하면 0.12f 처럼 f나, F를 붙여야 한다.
     - **e나, E를 통해서 표현된 숫자리터럴은 컴파일러가 지수, 가수로 표현된 소수점이 있는 double형 실수로 받아들인다.**
+    
+### 3. 타입 변환
+
+  - 자동 타입 변환
+    - '허용 범위가 큰 타입 = 허용 범위가 작은 타입' 식으로 대입한다면 자동으로 타입변환이 일어나 대입된다.
+    - 허용 범위 순서 : byte < short(char) < int < long < float < double.
+      - byte형 = char형 X : byte형은 음수를 다루지만, char형은 그렇지 않기 때문.
+      - 실수형 = 정수형 무조건 가능
+     
+  - 강제 타입 변환
+    - '허용 범위가 작은 타입 = 허용 범위가 큰 타입'식의 연산을 캐스팅 연산자 괄호()를 통해서 수행한다.
+  
+  - **산술연산식에서의 변수 강제 타입 변환**
+    - 산술 연산식의 피연산자가 byte형이나, short형이라면, 변수들은 자동으로 int형으로 형변환되고, 연산결과도 int형으로 저장해야 한다.
+    - 산술 연산식의 피연산자에 int형보다 범위가 큰 long타입이 존재한다면, 연산결과를 long형으로 저장해야 한다.
+    - 실수 변수가 있는 산술 연산식에서도,
+      - 피연산자들끼리 같은 타입이라면, 그 타입으로 연산한다. "float = float + float"
+      - 피연산자들끼리 다른 타입이라면, 가장 범위가 큰 타입으로 변환되어 연산결과가 저장된다.
+    - 특별한 경우들에 한해서, 위의 경우를 염두해두고 형변환을 강제해주면 된다.
+    
+```java
+public class FOO{
+  public static void main(String args[]){
+    
+    // 피연산자 - int 형 타입 변환
+    byte type1 = 3;
+    short type2 = 2;
+    int type3 = type1 + type2;
+    System.out.println(type3);
+    
+    // 피연산자 - double 형 타입변환
+    float typeA = 2;
+    double typeB = 3.4;
+    dobule typeC = typeA + typeB;
+    
+  }
+}
+```
+  
+  - **'+'연산자의 두가지 기능**
+    - 피연산자가 숫자(정수형, 실수형 - 여기에 char형의 문자 포함이다.)일 경우 덧셈연산을 한다
+    - 피연산자에 String형의 문자열이 등장하면 문자열 결합연산을 한다.
+    - **왼쪽에서 오른쪽으로 연산을 진행하면서, String형이 등장하는 순간부터 변수들이 문자열로 취급되어, 문자열 결합연산을 하게된다.**
+
+```java
+public class FOO{
+  public static void main(String args[]){
+    
+    System.out.println(2 + 3 + "a" + 2 + 3);
+    // 5a23 출력
+    System.out.println(2 + (3 + "a") + 2 + 3);
+    // 23a23 출력
+    
+  }
+}
+```
+  
+  - **문자열 -> 숫자 , 숫자 -> 문자열**
+    - 문자열을 숫자로 바꾸고 싶다!
+      - byte로 -> Byte.parseByte(String_type);
+      - short -> Short.parseShort(String_type);
+      - int -> Integer.parseInt(String_type);
+      - long -> Long.parseLong(String_type);
+      - float -> Float.parseFloat(String_type);
+      - double -> Double.parseDouble(String_type);
+      - boolean ->Boolean.parseBoolean(true or false);
+    - 숫자를 문자열로 바꾸고 싶다!
+      - String.valueOf(기본타입 값)
+
+```java
+public class FOO{
+  public static void main(String[] args){
+  
+    int value1 = Integer.parseInt("3000");
+    // value1에 3000 들어감
+    
+    String str1 = String.valueOf(455);
+    // String형 str1에 455가 저장된다.
+    
+  }
+
+}
+```
+  
+  
+  
+  
+  
+  
+  
