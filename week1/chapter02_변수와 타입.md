@@ -137,7 +137,7 @@ public class FOO{
      - 스캐너 객체 생성...!
      - System.in은 입력값을 byte 단위로 읽어들이는 것을 의미함
      - scanner.next() : 다음 단어, 공백 기준
-     - scanner.nextline() : 다음 문장, 개행문자 기준
+     - scanner.nextLine() : 다음 문장, 개행문자 기준
      - scanner.nextInt() : 다음 정수
      - scanner.nextDouble()...
 
