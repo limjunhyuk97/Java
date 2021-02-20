@@ -75,11 +75,44 @@ public static void check(BankAccount acc){
 }
 ```
 
-## 2. String은 Java에서 제공하는 클래스 중의 하나이다.
+## 2. String은 문자열 처리를 위해서 java에서 제공하는 클래스이다.
 
+## 3. 생성자(Constructor)
+  - 인스턴스 생성 시에 인스턴스의 초기화를 위한 메소드
+  - 인스턴스 생성 시 한번 호출
+  - 반환값 없음
+  - 클래스 이름과 동일한 메소드임
+  - 인스턴스 생성의 마지막 단계에서 생성자가 호출된다
+  - 생성자 호출이 생략된 인스턴스는 존재할 수 없다.
+  
 ```java
 
+class BankAccount{
+  
+  String accNum;
+  String ssNum;
+  int balance;
+  
+  // 생성자
+  public BankAccount(String acc, String ss, String bal){
+    accNum = acc;
+    ssNum = ss;
+    balance = bal;
+    
+  }
+  
+}
 
+public class BankAcconuntUniID{
+
+  public static void main(String[] args){
+    
+    // 인스턴스 생성 시에 호출해야 하는 생성자.
+    BankAccount Lim = new BankAccount("my bankAccount", "my SocialSecurityNumber", mybalance);
+    
+  }
+
+}
 
 ```
 
