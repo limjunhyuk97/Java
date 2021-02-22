@@ -116,10 +116,8 @@ public class BankAcconuntUniID{
 
 ## 3. String은 문자열 처리를 위해서 java에서 제공하는 클래스이다.
 
-## 4. array(배열) 또한 java에서는 객체로 취급한다.   
+## 4. array(배열) 또한 java에서는 객체로 취급한다.
 
-  - **1차원 배열**   
-  
   - **배열 선언**
     - 배열 변수는 참조 변수에 속하므로, **배열은 힙 영역에 생성**되고, **배열 변수는 힙영역의 배열을 참조하는 것**이다.
     - **1차원 배열**
@@ -198,11 +196,13 @@ String[][] StringArray = new String[3][];
 ```
   - **main 메소드의 기본 인자, String[] args 의 의미.**
     - 기본적인 의미는 String 배열인 args라는 배열변수를 받아서 main 메소드에 전달하라는 것이다.
-    - 명령라인(명령 프롬프트)에서 공백으로 구분된 문자열 배열을 따로 전달한다면 main에서 받아들일 것이다.
+    - **명령라인(명령 프롬프트)에서 공백으로 구분된 문자열 배열을 따로 전달**한다면 main에서 받아들일 것이다.
     - 따로 문자열 배열을 전달하지 않으면 args로 전달된 것이 없는 것이다.
       - java -cp bin [package_name].[class_name] 문자열0 문자열1 문자열2 ... 문자열 n-1   
       
-  - 배열을 함수 인자로 전달할 때
+  - **배열을 함수 인자로 전달할 때**
+    - 1차원 배열을 받는지, 2차원 배열을 받는지를 매개인자에 명시해줘야 한다.
+    
 ```java
 
 package StringEqualsExample;
@@ -242,6 +242,17 @@ public class ArrayReferenceObjectExample {
 
 ```
 
+  - **배열의 복사**
+    - **for문을 이용**한 직접 복사 방식
+    - **System.arraycopy(Object src, int srcPos, Object dest, int destPos, int len)**를 이용한 복사 방식
+      - src : source object , 원본 객체
+      - srcPos : sourcePosition , 원본에서 복사 시작할 위치
+      - dest : destination, 복사본 객체
+      - destPos : destinationPosition, 복사본에서 복붙 시작할 위치
+      - len : length, srcPos부터 복사할 갯수
+
+  - **향상된 for문**
+    - for( 배열 원소 받을 인자 : 배열 명)
 
 
 
