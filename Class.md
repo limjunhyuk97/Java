@@ -203,7 +203,44 @@ String[][] StringArray = new String[3][];
       - java -cp bin [package_name].[class_name] 문자열0 문자열1 문자열2 ... 문자열 n-1   
       
   - 배열을 함수 인자로 전달할 때
-  
+```java
+
+package StringEqualsExample;
+
+public class ArrayReferenceObjectExample {
+	
+	public static void main(String[] args) {
+		
+		int intArray[][] = new int[2][];
+		intArray[0] = new int[3];
+		intArray[1] = new int[6];
+		
+		add2D(intArray);
+	}
+	
+	static int add1D(int[] intArr) {
+		int sum = 0;
+		for(int i=0 ; i<intArr.length; ++i)
+			sum += intArr[i];
+		return sum;
+	}
+	
+	static int add2D(int[][] intArr) {
+		int sum = 0;
+		
+		for(int i=0; i<intArr.length; ++i) {
+			for(int j=0; j<intArr[i].length; ++j) {
+				intArr[i][j] = i + j;
+				sum += intArr[i][j];
+				System.out.print(intArr[i][j] + " ");
+			}
+			System.out.println();
+		}
+		return sum;
+	}
+}
+
+```
 
 
 
