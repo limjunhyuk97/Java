@@ -118,7 +118,7 @@ public class BankAcconuntUniID{
 
 ## 4. array(배열) 또한 java에서는 객체로 취급한다.
 
-  - **배열 선언**
+  - **배열 선언**   
     - 배열 변수는 참조 변수에 속하므로, **배열은 힙 영역에 생성**되고, **배열 변수는 힙영역의 배열을 참조하는 것**이다.
     - **1차원 배열**
       - 타입[] 배열명
@@ -253,8 +253,30 @@ public class ArrayReferenceObjectExample {
 
   - **향상된 for문**
     - for( 배열 원소 받을 인자 : 배열 명)
+    - 배열 내를 순회하며 꺼낼 수 있는 인자를 모두 
 
+```java
 
+package StringEqualsExample;
+
+public class exam04 {
+	public static void main(String[] args) {
+		
+		int arr[] = new int[5];
+		int max = 0;
+		
+		for(int i : arr) {
+			i = (int)(Math.random() * 10);
+			System.out.print(i +" ");
+			if(max < i)
+				max = i;
+		}
+		
+		System.out.println("\nmax value : " + max);
+	}
+}
+
+```
 
 
 
