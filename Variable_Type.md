@@ -235,7 +235,61 @@ boolean bool = name3.equals(name4);
 
 ```
     
+  - 열거 타입
+    - 열거 타입은, 열거 상수 중에서 하나를 저장하는 타입이다.
+    - **열거 타입의 열거 변수가 열거 타입의 열거 상수 객체를 참조하는 것이다.**
+      - 열거 상수 객체는 힙영역에 만들어져 있다.
+      - class 에서 사용되는 정적 필드/상수, 메소드 코드, 생성자 코드들 등이 메소드 영역에 위치하는데, 이 영역에서 힙영역의 열거 상수 객체를 참조한다.
+      - 메소드가 실행되면, 프레임이 만들어지고, 프레임 속의 열거형 변수가 참조하는 열거 상수의 번지를 메소드 영역에서 복사해온다.
+
+```java
+
+package 해당 package명;
+// 어떤 패키지 내부에 있는지 서술
+public enum 열거타입명 { 열거상수1,열거상수2, 열거상수3, ,,,}
+// 열거타입명은 enum 파일과 이름이 같아야 한다.
+
+// 예시
+package Calendar;
+
+public enum Week{
+  MONDAY,
+  TUESDAY,
+  WEDNESDAY,
+  THURSDAY,
+  FRIDAY,
+  SATURDAY,
+  SUNDAY
+}
+
+// 사용
+package Calendar;
+
+import java.util.Calendar;
+
+public class CalendarPractice{
+
+  public static void main(String[] args){
+  
+    // .getInstance() 메소드로 캘린더 객체를 얻는다.
+    Calendar cal = new Calendar.getInstance();
     
+    // 열거형 Week 타입 변수 today를 선언했다.
+    Week today = null;
+    
+    // .get() 메소드로 현재 날짜정보를 얻을 수 있다.
+    // .get(DAY_OF_WEEK) 같은 경우는 요일 정보를 1(일요일) ~ 7(월요일) 값으로 가져온다.
+    int week = cal.get(DAY_OF_WEEK);
+    
+    // today 열거형 변수에 Week.SUNDAY 열거형 상수 객체 번지 주소를 할당했다.
+    if(week == 1)
+      today = Week.SUNDAY:
+      
+  }
+
+}
+
+```
     
     
     
