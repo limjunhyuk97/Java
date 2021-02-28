@@ -7,9 +7,10 @@
 
 # Class
 
-## 1. class는 메소드와 데이터로 이루어져 있다.
+## 1. class는 메소드와 필드, 생성자로 이루어져 있다.
   - **데이터 : 상태정보 : "클래스 내의 인스턴스 변수" : "멤버변수( 마치 cpp 멤버변수 )" : "필드"**
   - **메소드 : 행동정보 : "클래스 내의 인스턴수 메소드( 마치 cpp 멤버함수 )"**
+  - **생성자 : class에서 인스턴스인, 객체를 만들어낼때 필요한 메소드. new 연산자를 통해 호출된다.**
   - class 는 연관있는 데이터와 메소드를 하나로 묶어준다.
     - 인스턴스 변수는 같은 클래스 내의 인스턴스 메소드 내에서 접근 가능하다.
     - class의 필드와 메소드 구성을 이용하려면, **class를 통해서 찍어낸 인스턴스(객체)를 이용해야 한다.**
@@ -75,48 +76,62 @@ public static void check(BankAccount acc){
 }
 ```
 
-## 2. 생성자(Constructor)
-  - 인스턴스 생성 시에 인스턴스의 초기화를 위한 메소드
-  - 인스턴스 생성 시 한번 호출
-  - 반환값 없음
-  - 클래스 이름과 동일한 메소드임
-  - 인스턴스 생성의 마지막 단계에서 생성자가 호출된다
-  - 생성자 호출이 생략된 인스턴스는 존재할 수 없다.
+## 2. 필드
+  - 객체의 고유한 정보, 부품, 상태 정보를 갖고 있는 속성.
+
+## 생성자   
+
+  - **생성자의 역할**
+    - new 연산자에 의해서 객체 생성 시에 호출되어, 객체의 초기화를 담당함.
+    - 생성자가 실행되지 않으면, 객체가 생성되지 않는다.   
+    
+  - **기본 생성자**
+    - 생성자를 따로 정의해 주지 않는다면, 자동으로 바이트 코드에 기본 생성자가 생성된다.
+    - 만약, 명시적으로 생성자를 하나라도 만든다면, 기본 생성자는 생성되지 않는다.
+    - 기본 생성자는 { }로 이루어진, 모든 상태를 기본 상태로 초기화 하는 생성자 이다.   
   
+  - **생성자 선언**
+    - 클래스 명과 같고, 리턴 값이 없는 함수와 같다.
+    - 생성자를 따로 만든다면 그 생성자를 반드시 실행 시켜주어야 한다.
+    - this.에서 this는 생성된 객체 자신을 가리키는 참조변수이다.
+  
+  - **생성자 오버로딩**
+    - 매개변수를 달리하는 생성자를 여러 개 생성하여, 다양한 객체 초기화의 방법을 제공하는 것이다.
+    - 생성자 오버로딩이 가능한 경우(생성자가 서로 구분되는 경우)는 : 매개변수의 타입과 갯수가 다른 경우일때만 이다. (CPP의 함수 오버로딩과 비슷함.)
+  
+  - **생성자 코드 중복 간소화 (this(), 다른 생성자 호출)**
+    - this() 를 통한 다른 생성자의 호출은, 생성자블록의 첫 줄에서만 허용된다.
+    - 전체적인 초기화 내용을 다루는 생성자 하나를 중심으로, 구체화된 초기화 내용들을 인자로 전달한다.
+    
 ```java
 
-class BankAccount{
-  
-  String accNum;
-  String ssNum;
-  int balance;
-  
-  // 생성자
-  public BankAccount(String acc, String ss, String bal){
-    accNum = acc;
-    ssNum = ss;
-    balance = bal;
-    
+package Object;
+
+public class Car {
+	String company = "Tesla";
+	String model = "Model S";
+	String color = "Black";
+	int maxSpeed = 300;
+	int speed;
+	
+	Car() {}
+	Car(String model) {
+    this(model, "black", 300);
   }
-  
-}
-
-public class BankAcconuntUniID{
-
-  public static void main(String[] args){
-    
-    // 인스턴스 생성 시에 호출해야 하는 생성자.
-    BankAccount Lim = new BankAccount("my bankAccount", "my SocialSecurityNumber", mybalance);
-    
+	Car(String model, String color) {
+    this(model, color, 250);
   }
-
+	Car(String model, String color, int maxSpeed) {
+   this.model = model; this.color = color; this.maxSpeed = maxSpeed;
+  }
+	
 }
 
 ```
 
-## 3. String은 문자열 처리를 위해서 java에서 제공하는 클래스이다.
+# String
 
-## 4. array(배열) 또한 java에서는 객체로 취급한다.
+# Array
 
   - **배열 선언**   
     - 배열 변수는 참조 변수에 속하므로, **배열은 힙 영역에 생성**되고, **배열 변수는 힙영역의 배열을 참조하는 것**이다.
