@@ -90,7 +90,7 @@ public static void check(BankAccount acc){
   
   - **생성자 오버로딩**
     - 매개변수를 달리하는 생성자를 여러 개 생성하여, 다양한 객체 초기화의 방법을 제공하는 것이다.
-    - 생성자 오버로딩이 가능한 경우(생성자가 서로 구분되는 경우)는 : 매개변수의 타입과 갯수가 다른 경우일때만 이다. (CPP의 함수 오버로딩과 비슷함.)
+    - 생성자 오버로딩이 가능한 경우(생성자가 서로 구분되는 경우)는 : 매개변수의 타입과 갯수, 순서가 다른 경우일때만 이다. (CPP의 함수 오버로딩과 비슷함.)
   
   - **생성자 코드 중복 간소화 (this(), 다른 생성자 호출)**
     - this() 를 통한 다른 생성자의 호출은, 생성자블록의 첫 줄에서만 허용된다.
@@ -121,5 +121,99 @@ public class Car {
 }
 
 ```
+
+## 4. 메소드
+
+  - **메소드 선언의 구성**
+    - **메소드 선언부(메소드 시그니처)**
+      - 반환형
+      - 메소드 명
+      - 메소드 매개변수 선언
+        - **매개변수 갯수 모르는 경우**
+          - **배열로 전달**
+            - 배열 매개인자 <- 배열 전달
+          - **... 으로 전달**
+            - ... 매개인자 <- 배열 전달 or 값 목록으로 바로 전달 가능
+          - 두가지 경우 모두, 넘겨받은 항목에 의거하여 메소드 내에서 배열을 생성한다.
+  - **메소드 실행블럭**
+
+```java
+
+package Object;
+
+public class Computer{
+  
+  // 매개인자를 배열로 받는 경우
+  int sum1(int[] values){
+    int sum = 0;
+    for(int i ; values)
+      sum += i;
+    return sum;
+  }
+  
+  // 매개인자를 ...로 받는 경우
+  int sum2(int ... values){
+    int sum = 0;
+    for(int i=0 ; i<values.length ; ++i)
+      sum += values[i];
+    return sum;
+  }
+  
+  // main 메소드에서 확인
+  public static void main(String[] args){
+    
+    Computer com = new Computer();
+    
+    // sum1에는 배열로 인자 넘기기
+    int result1 = com.sum1(new int[] {1 ,2, 3, 4, 5});
+    
+    // sum2에는 값 목록으로 인자 넘기기, 배열로도 인자 넘기기 가능
+    int result2 = com.sum2(1, 2, 3, 4, 5);
+    int result3 = com.sum2(new int[] {1, 2, 3, 4, 5});
+    
+  }
+   
+}
+
+```
+
+  - **메소드 호출**
+    - **객체 내부에서 다른 메소드 호출**
+      - 객체 생성의 필요 없이 메소드 이름만으로 호출 가능하다. (메소드명)
+    - **객체 외부에서 다른 메소드 호출**
+      - class로 객체를 생성 후에, 객체 내부의 메소드를 실행시켜야 한다. (객체.메소드명)
+      
+```java
+public class Class1{
+  
+  int sum(int n, int m){
+    return n+m;
+  }
+  
+  // 객체 내부 - 이름만
+  int sumprint(int n, int m){
+    System.out.println(sum1(n, m));
+  }
+
+}
+
+class Class2{
+  
+  int sum(int n, int m, int l){
+    
+    // 객체 외부 - 객체 생성 요구
+    Class1 obj = new Class1();
+    
+    return obj.sum(n ,m) + l;
+  }
+
+}
+```
+
+  - **메소드 오버로딩**
+    - 같은 이름의 메소드를 여러개를 선언하는 것
+    - 매개변수의 타입, 개수, 순서 중 하나가 달라야 메소드 오버로딩의 조건으로 충족되다.
+    
+
 
 
