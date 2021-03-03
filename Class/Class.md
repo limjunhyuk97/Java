@@ -71,6 +71,23 @@ public static void check(BankAccount acc){
 
 ## 2. 필드
   - 객체의 고유한 정보, 부품, 상태 정보를 갖고 있는 속성.
+  - **final 필드(final field)**
+    - 상수(final)는 한번 초기화 되면 수정할 수 없다.
+    - 상수 필드(final field)에 초기값을 주는 방법 : 필드 생성과 동시에 초기화 / **생성자를 통한 초기화(값이 객체마다 주어져야 하는 경우)**
+  - **상수 필드(static final field)**
+    - 불변의 값(상수)은 객체마다 존재할 필요가 없는 공용성을 갖고 있고, 객체마다 값이 다르면 안된다.
+    - static final 선언은 이러한 상수의 조건을 만족시켜준다.
+    - **아예 변하지 않는 값들은 정적 상수(static final)로 지정해 주자.**
+
+```java
+
+public class Person {
+	static final String country = "Korea";
+	final int age;
+	final String name;
+}
+
+```
 
 ## 3. 생성자   
 
@@ -227,6 +244,7 @@ class Class2{
       - 메소드 영역에 저장되고 공유된다.
       - 왜 인스턴스라고 하냐 그럼?
         - 특정 객체 안의 인스턴스 필드를 메소드로 처리할때, 어쨌든 특정 객체가 메소드를 부르기 때문에.
+    - **this.** 는 **객체 내부의 인스턴스 멤버에 접근하기 위하여 사용**하는 것이다!
         
   - **정적 멤버 (static member)**
     - class에 정적(static)으로 존재하는 필드와 메소드.
@@ -235,6 +253,7 @@ class Class2{
     - 메소드 메모리 영역에 저장 시에, 클래스 별로 관리되므로, 클래스 로딩이 끝나면 바로 사용 가능.
       - 바이트 코드 파일 내 클래스 -> (클래스 로더 : 클래스 로딩) -> 메소드 영역 저장(static field, static method)
     - **객체들이 공유한다.**
+    - **this.** 로 **객체 내부의 정적 멤버에 접근할 수 없다.** (this는 인스턴스 객체가 스스로를 지칭하는 것)
       
   - **인스턴스 멤버 vs 정적 멤버**
 
@@ -248,7 +267,33 @@ class Class2{
       - 사용시에, 참조변수를 통해서 접근할 수도 있으나, **class명. 을 통해서 접근하는 것이 좋다.**
       - **정적 멤버 외의 멤버 (인스턴스 필드, 인스턴스 메소드)를 정적 메소드에서 사용할 수 없다. / 정적 멤버는 소속 객체가 없어도 되기 때문**
 
+  - **싱글톤(Singleton)**
+    - **오로지 단 하나의 객체만 생성되어야 하는 경우**, **이때 생성된 객체를 싱글톤**이라고 한다.
+    - 싱글톤 생성 방법
 
+```java
+
+// class name : Singleton
+public class Singleton{
+  
+  // Singleton 객체의 내부 생성.
+  // private - 외부 접근 안됨 (은닉)
+  // static - class에 하나 생성
+  private static Singleton singleton = new Singleton();
+  
+  // Singleton 객체 생성자.
+  // private - 외부 접근 안됨 (은닉)
+  private Singleton() {}
+  
+  // 단 하나의 싱글톤 객체의 반환
+  // static - class명으로도 (객체 생성 없이) 접근 가능해야 함
+  static Singleton getInstance(){
+    return singleton;
+  }
+  
+}
+
+```
 
 
 
