@@ -105,7 +105,7 @@ public class Person {
 
 ## 3. 생성자   
 
-  - **(private / public / protected) + **
+  - **(private / public / protected)**
     - access modifier : private / public / modifier   
 
   - **생성자의 역할**
