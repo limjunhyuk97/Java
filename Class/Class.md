@@ -1,5 +1,11 @@
-# Class
+# Class   
 
+  - **(public / (default)) + (abstract / X) + (final / X) + (strictfp/ X)**
+    - access modifier : public / (default)
+    - abstract / X : abstract class or not
+    - final / X : forbidding inheritance or not 
+    - strictfp / X : restrict floating-point calculations to ensure portability or not
+    
 ## 1. 메소드, 필드, 생성자
   - **데이터 : 상태정보 : "클래스 내의 인스턴스 변수" : "멤버변수( 마치 cpp 멤버변수 )" : "필드"**
   - **메소드 : 행동정보 : "클래스 내의 인스턴수 메소드( 마치 cpp 멤버함수 )"**
@@ -69,7 +75,15 @@ public static void check(BankAccount acc){
 }
 ```
 
-## 2. 필드
+## 2. 필드   
+
+  - **(private / public / protected) + (static / X) + (final / X) + (transient / X) + (volatile /X)**
+    - access modifier : private / public / protected
+    - static / X : static or not
+    - final / X : final or not
+    - trandient : 
+    - volatile :    
+  
   - 객체의 고유한 정보, 부품, 상태 정보를 갖고 있는 속성.
   - **final 필드(final field)**
     - 상수(final)는 한번 초기화 되면 수정할 수 없다.
@@ -90,6 +104,9 @@ public class Person {
 ```
 
 ## 3. 생성자   
+
+  - **(private / public / protected) + **
+    - access modifier : private / public / modifier   
 
   - **생성자의 역할**
     - new 연산자에 의해서 객체 생성 시에 호출되어, 객체의 초기화를 담당함.
@@ -139,7 +156,15 @@ public class Car {
 
 ```
 
-## 4. 메소드
+## 4. 메소드   
+
+  - **(private / public / protected) + (static / X) + (final / X) + (synchronized / X) + (native / X) + (strictfp / X)**
+    - access moifier : private / public / protected
+    - static / X : static or not
+    - final / X : restrict overloading or not
+    - synchronized / X :
+    - native / X : 
+    - strictfp / X : restrict floating-point calculation to ensure portability or not   
 
   - **메소드 선언의 구성**
     - **메소드 선언부(메소드 시그니처)**
@@ -231,6 +256,36 @@ class Class2{
     - **매개값을 다양하게 처리하기 위해서** 오버로딩이 존재한다.
     - **매개변수의 타입, 개수, 순서 중 하나가 달라야** 메소드 오버로딩의 조건이 충족된다.
     - 첫번째로 타입 일치 여부 확인 -> 두번째로 타입 변환 가능 여부 확인
+    
+  - **final 메소드**
+    - 상속관계에서, 상속은 시키되, 유도 클래스에서의 메소드 오버로딩을 금지 시킨다.
+    
+```java
+
+// declare A1
+package A;
+
+class A1{
+
+  public final void foo() {}
+  public final void foo(int x) {}
+  // 같은 class 내에서는 overloading 가능
+  
+}
+
+// declare A2
+package A;
+
+class A2 extends A1{ 
+
+  public void foo() {}
+  // 불가능
+  // 상속 시에 함수의 오버로딩이 불가능 하다.
+
+}
+
+```
+    
    
 ## 5. **멤버 (인스턴스 멤버, 정적 멤버)**
   
