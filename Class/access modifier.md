@@ -14,31 +14,11 @@
 # 1. class와 access modifier     
    
    - **default**
-     - 접근제한자로 따로 아무것도 적지 않으면 default 접근제한자 생성 (default라고 선언하는 것 아니다.)
+     - 따로 선언하지 않으면, default 접근제한자 생성 (default라고 선언하는 것 아니다.)
      - 같은 package O, 다른 패키지 X
-     
-```java
-
-// package A : class A
-// package B : public class B, public class C 존재
-
-public class C{
-  
-  A newA = new A(); // O
-  B newB = new B(); // X
-
-}
-```
 
   - **public**
     - 같은 패키지 O, 다른 패키지 O (import 한 경우)
-    
-```java
-
-// package A : class A
-// package B : public class B, public class C 존재
-
-```
 
 # 2. constructor와 access modifier
 
