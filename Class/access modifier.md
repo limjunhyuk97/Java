@@ -11,7 +11,7 @@
    - private, protected, public, default
 
 
-# 1. class와 access modifier     
+## 1. class와 access modifier     
    
    - **default**
      - 따로 선언하지 않으면, default 접근제한자 생성 (default라고 선언하는 것 아니다.)
@@ -20,7 +20,7 @@
   - **public**
     - 같은 패키지 O, 다른 패키지 O (import 한 경우)
 
-# 2. constructor와 access modifier
+## 2. constructor와 access modifier
 
   - 따로 생성자를 선언하지 않은 상태라면(기본 생성자), class의 access modifier 선언을 따라간다.
 
