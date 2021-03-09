@@ -1,7 +1,6 @@
 # 접근 제한자(access modifier, modifier)
 
 ## 접근 제한자의 역할
-  
   - 선언부에서 **다른 대상으로부터의 특정 대상의 이용에 제한을 거는 부가적인 역할**을 한다.
   - 대상에는 **인터페이스, 클래스, 메소드, 생성자, 필드** 들이 들어간다.
   - **다른 대상의 package상 위치와, 접근제한의 수준**이 중요하다.
@@ -9,6 +8,7 @@
 ## 접근 제한자의 종류
  
    - private, protected, public, default
+   - private < defualt < protected < public (----> 접근 제한이 약해짐 / <---- 접근제한이 강해짐) 
 
 
 ## 1. class와 access modifier     
