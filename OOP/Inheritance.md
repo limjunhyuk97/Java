@@ -61,18 +61,50 @@ public class child extends parent{
 
 ```java
 
-package A;
+// class A
+package foo;
 
-public class A{
-  
-  public void foo1(){
-    
-  }
-  
-  public final void foo2() {
-  
-  }
-  
+public class A {
+	public void foo1() {
+		System.out.println("A's foo1() called");
+	}
+	
+	public final void foo2() {
+		System.out.println("A's foo2() called");
+	}
+}
+
+// class B
+package foo;
+
+public class B extends A {
+	
+	// 컴파일 오류 : Cannot reduce the visibility of the inherited method from A (제한 강화 불가)
+	// private void foo1() {}
+	
+	// 컴파일 오류 : Cannot override the final method from A (final 메소드 재정의 불가)
+	// public void foo2() {}
+	
+	public void foo1() {
+		System.out.println("B's foo1() called");
+	}
+}
+
+// class main, main method
+package foo;
+
+public class main {
+
+	public static void main(String[] args) {
+		
+		A objA = new A();
+		B objB = new B();
+
+		objA.foo1();  // "A's foo1() called"
+		objB.foo1();  // "B's foo1() called"
+		
+	}
+
 }
 
 ```
