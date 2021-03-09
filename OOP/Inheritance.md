@@ -17,6 +17,8 @@
 ## 생성자 호출 관계
   
   - 유도 클래스에 의해 **인스턴스가 생성될 때, 부모 클래스의 생성자가 호출(부모 인스턴스 생성)되고 -> 자식 클래스의 생성자가 호출**된다.
+    - this. : 해당 인스턴스 자체를 가리킨다.
+    - super. : 부모 클래스의 인스턴스를 가리킨다.
     - **super( 매개인자, 매개인자, ,,,)**
       - 부모 클래스의 생성자를 불러온다.
       - super에 전달되는 매개인자의 종류와 갯수, 타입과 일치하는 부모 클래스의 생성자를 불러온다.
@@ -49,15 +51,19 @@ public class child extends parent{
 
 ```
 
-## 메소드 재정의
+## 메소드 재정의 (Overriding)
 
   - **부모 클래스에 존재하는 메소드를, 시그니처는 똑같이 유지한 채 내용 바꿈 가능.** (메소드 재정의, 내용의 재정의)
-  - 조건 (3)
+  - **메소드를 Overriding하면 부모 class 메소드가, 자식 class 메소드에 가려진다.**
+    - override된 메소드 이용 : 그냥 이용
+    - 부모 class의 메소드 이용 : super. 로 메소드 호출
+  - **메소드 재정의 조건 (3)**
     - 부모 메소드와 동일한 시그니처여야 함. (리턴값, 함수명, 매개인자의 갯수, 자료형, 순서가 같아야 함)
     - 접근 제한 조건을 더 강하게 걸 수 없다. / 접근 제한 조건을 완화할 수는 있다. (cannot reduce the visibility.. 컴파일 오류 발생)
       - public -> protected, private X
       - private -> public O
-    - 새로운 예외(exception)를 throw할 수는 없다.
+      - 새로운 예외(exception)를 throw할 수는 없다.
+  - **@Override** 라고 overriding 된 부분에 annotation을 적어주는 것이 좋다.
 
 ```java
 
@@ -109,6 +115,13 @@ public class main {
 
 ```
 
+  - **부모 메소드의 호출**
+    - super. 를 사용하면 부모 class에 있는 method를 이용할 수 있다.
+    
+  - **final 키워드**
+    - final class : 특정 class를 상속할 수 없다는 정의이다.
+    - final field : 상수 field의 선언이다.
+    - final method : 메소드를 재정의할 수 없다는 의미이다.
 
 
 
