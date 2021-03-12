@@ -19,6 +19,7 @@
 
   - **public**
     - 같은 패키지 O, 다른 패키지 O (import 한 경우)
+    - class 파일 하나에는 하나의 public class가 존재한다.
 
 ## 2. constructor와 access modifier
 
