@@ -49,7 +49,12 @@ short a = 10 + 20;
 
 ```java
 
-double num = 1.3333;
+// 불가능
+float num = 3.4;
+
+// 가능
+float num1 = 3.4f;
+double num2 = 1.3333;
 
 // 정수형 literal : 왠만하면 int형으로 알아먹되, 저장하는 변수 유형에 맞게 알아먹음. 단, long은 리터럴 끝에 L 붙여야 함
 // 실수형 literal : 무조건 double로 알아먹으니, float형으로 저장하려면 f나 F 붙여야 함.
