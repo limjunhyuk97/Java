@@ -36,6 +36,7 @@ short a = 10 + 20;
   - 문자 리터럴이란?
     - '단일문자'형식의 값
     - 문자리터럴은 유니코드로 변환되어 저장된다. : 기본타입 - 정수타입 - char형 - 문자 리터럴 저장
+    - unicode encoding scheme은 다양한 언어의 존재로 인해서 만들어진 다양한 character encoding 방식을 통합한 encoding shceme이다. 이러한  java에서는 UTF(Unicode transformation format)-16방식을 사용하는데 이 방식에서는 BMP(Basic multilingual plane)를 표현하기 위해서 16비트짜리의 하나의 code unit을 이용하고, Supplementary plane을 표현하기 위해서 BMP의 surrogate area를 비롯한 두개의 code unit을 사용한다. 이러한 방식은 모든 단어마다 하나의 code point를 부여하는 UTF-32 방식보다는 메모리의 낭비가 덜하지만, Java에서는 character 표현을 위해서 1 code unit의 사용만을 허락하기 때문에, supplementary 문자의 처리를 위해서는 두개의 char value를 사용하거나, String class를 사용하기를 권장한다.
     
   - 문자열 리터럴이란?
     - "여러개의 문자"형식의 값
