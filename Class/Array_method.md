@@ -8,7 +8,7 @@
     - dest : destination, 복사본 객체
     - destPos : destinationPosition, 복사본에서 복붙 시작할 위치
     - len : length, srcPos부터 복사할 갯수
-    - 
+
 ![arraycopy](https://user-images.githubusercontent.com/59442344/111024356-ae6b8000-8421-11eb-9838-9bc5f335d2c0.jpg)
 
   - **Arrays.copyOf(Object src, int len)**
@@ -49,8 +49,8 @@ public static void main(String[] args) {
 		Pos p1[] = {new Pos(2,3) , new Pos(3, 4), new Pos(5, 6), new Pos(10, 23)};
 		Pos p2[] = new Pos[] {new Pos(3,5) , new Pos(2, 0), new Pos(3, 7), new Pos(10, 23), new Pos(9, 6)};
 		
-    // 얕은 복사
-		// p2 array의 0번째 idx부터 3번째 idx까지, p1 array의 0번째 idx의 객체부터 3번째 idx까지의 객체를 가리키게 되었다.
+    		// 얕은 복사
+		// p2 array의 0 ~ 3번째 idx == p1 array의 0 ~ 3번째 idx
 		System.arraycopy(p1, 0, p2, 0, 4);
 		
 		// p1 이 바뀌면 p2 array 내의 객체도 바뀐다.
