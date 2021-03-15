@@ -96,12 +96,29 @@ class Pos{
   - **Arrays.sort(Object src)**
     - src : source object, 원본 객체
 
+```java
+import java.util.Arrays;
+
+public class ArraySort {
+	public static void main(String[] args) {
+		int[] arr = new int[10];
+		
+		for(int i=0; i<10; ++i) arr[i] = (int)(Math.random() * 10 + 1);
+		
+		Arrays.sort(arr);
+		
+		for(int i : arr) System.out.println(i);
+	}
+}
+
+```
+
 ## 3. **java.util.Arrays**
   - **util package 안의 Arrays class에서 지원하는 static method들..** 
   - type : int, long, short, char, byte, float, double (method overloading이다.)
   - static vois sort(type[] a)
-  - static int binarySearch(type[] a, type v)
-  - static int binarySearch(type[] a, int start, int end)
+  - static int binarySearch(type[] a, type key)
+  - static int binarySearch(type[] a, int start, int end, type key)
   - static void fill(type[]a , type b) 
   - static Boolean equals(type []a, type []b)
   - static type[] copyOf(type []a, int length)
