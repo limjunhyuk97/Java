@@ -289,6 +289,10 @@ class A2 extends A1{
 
   - **getter, setter method**
     - 한번에 field 값에 접근하는 것을 막음으로써 객체의 무결성을 높인다. 
+  
+  - **Mutator method, Accessor method**
+    - Mutator method : immutable (instance 값 변경 가능)
+    - Accessor method : mutable (instance 값 변경 불가능)
    
 ## 5. **멤버 (인스턴스 멤버, 정적 멤버)**
   
