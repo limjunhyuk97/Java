@@ -62,7 +62,7 @@ System.out.println(str.codePointCount(0, str.length())); // 10
 
 ## String i-th code unit, point / String.charAt() , String.codePointAt()
   - char String.**charAt(i)** : i 번째 code unit의 char형 문자를 도출한다.
-  - int String.**offsetCodePoints(0, i)** : 0부터 시작했을 때, i번째 codePoint의 위치를 도출한다.
+  - int String.**offsetByCodePoints(0, i)** : 0부터 시작했을 때, i번째 codePoint의 위치를 도출한다.
   - int String.**codePointAt(i)** : i번째 code point의 int형 값을 도출한다.
 
 ```java
