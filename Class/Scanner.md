@@ -1,4 +1,4 @@
-# Scanner 사용시 유의 사항들
+# Scanner class
 
 ## 1. next() nextline() nextInt() method
 
