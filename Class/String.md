@@ -1,4 +1,4 @@
-# String
+# String Class
 
 ## String(문자열) 구현
   - C / C++ 처럼 문자의 배열을 통하여 문자열을 구현하지 않는다.
