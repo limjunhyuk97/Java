@@ -305,9 +305,27 @@ class A2 extends A1{
     - 한번에 field 값에 접근하는 것을 막음으로써 객체의 무결성을 높인다. 
   
   - **Mutator method, Accessor method**
-    - Mutator method : immutable (instance 값 변경 가능)
-    - Accessor method : mutable (instance 값 변경 불가능)
-   
+    - Mutator method : mutable (instance 값 변경 가능)
+    - Accessor method : immutable (instance 값 변경 불가능)
+
+```java
+
+// String : immutable object
+String str1 = "I Like";
+System.out.println(str1.hashCode());
+str1 = "Java";
+System.out.println(str1.hashCode());
+// 서로 다른 주소값이 나온다.
+
+// StringBuilder : muttable object
+StringBuilder str = new StringBuilder("WTF");
+System.out.println(str.hashCode());
+str.append(" j");
+System.out.println(str.hashCode());
+// 서로 같은 주소값이 나온다.
+
+```
+
 ## 5. **멤버 (인스턴스 멤버, 정적 멤버)**
   
   - **인스턴스 멤버 (instance member)**
