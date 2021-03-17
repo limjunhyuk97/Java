@@ -27,8 +27,8 @@
     - public 접근 제한자는 소스파일과 동일명을 갖고 있는 class 선언에만 붙일 수 있다.
   
  6. **클래스의 용도**
-    - **라이브러리 클래스** : 다른 클래스에서 이용할 목적으로 설계된 클래스
-    - **실행용 클래스** : main 메소드를 통하여, 프로그램 실행 진입점 역할을 목적으로 설계된 클래스
+    - **Workhorse class** : without main method (사용을 위한 class)
+    - **special(application) class / domain class** : with main method (실행을 위한 class)
     
  7. **클래스의 구성 멤버**
     - 필드 
