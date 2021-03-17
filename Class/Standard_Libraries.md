@@ -12,12 +12,18 @@
   - String class의 alternative이다.
   - String이랑 다르게, mutable한 String을 만들 수 있게 해준다.
 
+### 3. [java.lang.String](https://docs.oracle.com/en/java/javase/14/docs/api/java.base/java/lang/String.html)
+
+### 4. [java.lang.System](https://docs.oracle.com/en/java/javase/14/docs/api/java.base/java/lang/System.html)
+
 ## [java.util.\*](https://docs.oracle.com/en/java/javase/14/docs/api/java.base/java/util/package-summary.html)
   - can find all collections and data structures available in java
   
 ### 1. [java.util.Scanner](https://docs.oracle.com/en/java/javase/14/docs/api/java.base/java/util/Scanner.html)
 
 ### 2. [java.util.Calander](https://docs.oracle.com/en/java/javase/14/docs/api/java.base/java/util/Calendar.html)
+
+### 3. [java.util.Arrays](https://docs.oracle.com/en/java/javase/14/docs/api/java.base/java/util/Arrays.html)
 
 ## [java.math.\*](https://docs.oracle.com/en/java/javase/14/docs/api/java.base/java/math/package-summary.html)
   - provides functionalityfor working with arbitrary-precision decimal and integer values
