@@ -322,12 +322,15 @@ date.plusDays(1000);
 // 새로운 객체를 생성해버림.
 ```
 
-  - **implicit parameter, explicit parameter**
+  - **parameter : implicit parameter, explicit parameter**
     - **implicit parameter** : object of specific method, appears before the method name (메소드 호출 대상 객체)
-       - **target** 라고도 함
-       - **receiver** 
+      - **target** 라고도 함
+      - **receiver** 라고도 함 
     - **explicit parameter** : number inside the parentheses after the method name (메소드의 인자)
-
+    - **java 에서는 parameter를 무조건 call-by-value로 받는다!**
+      -  primitive 값, call-by-value로 받는다 : 단순 복사가 일어남
+      -  reference 값, call-by-value로 받는다 : 주소값의 단순 복사가 일어남 -> 내부 값의 변경 가능성이 생김
+  
 ## 5. **멤버 (인스턴스 멤버, 정적 멤버)**
   
   - **인스턴스 멤버 (instance member)**
