@@ -324,8 +324,8 @@ date.plusDays(1000);
 
   - **implicit parameter, explicit parameter**
     - **implicit parameter** : object of specific method, appears before the method name (메소드 호출 대상 객체)
-     - **target**
-     - **receiver**
+       - **target** 라고도 함
+       - **receiver** 
     - **explicit parameter** : number inside the parentheses after the method name (메소드의 인자)
 
 ## 5. **멤버 (인스턴스 멤버, 정적 멤버)**
