@@ -305,25 +305,21 @@ class A2 extends A1{
     - 한번에 field 값에 접근하는 것을 막음으로써 객체의 무결성을 높인다. 
   
   - **Mutator method, Accessor method**
-    - Mutator method : mutable (instance 값 변경 가능)
-    - Accessor method : immutable (instance 값 변경 불가능)
+    - **Mutator method** : mutable (instance 값 변경 가능)
+    - **Accessor method** : immutable (instance 값 변경 불가능)
 
 ```java
+import java.time.*;
 
-// String : immutable object
-String str1 = "I Like";
-System.out.println(str1.hashCode());
-str1 = "Java";
-System.out.println(str1.hashCode());
-// 서로 다른 주소값이 나온다.
+// mutator method
+GregorianCalendar someDay = new GregorianCalendar(2021, 3, 17);
+somDay.add(Calendar.DAY_OF_MONTH, 1000);
+// 기존의 someDay 값이 바뀌어버림.
 
-// StringBuilder : muttable object
-StringBuilder str = new StringBuilder("WTF");
-System.out.println(str.hashCode());
-str.append(" j");
-System.out.println(str.hashCode());
-// 서로 같은 주소값이 나온다.
-
+// accessor method
+LocalDate date = LocalDate.now();
+date.plusDays(1000); 
+// 새로운 객체를 생성해버림.
 ```
 
 ## 5. **멤버 (인스턴스 멤버, 정적 멤버)**
