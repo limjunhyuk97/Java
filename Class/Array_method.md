@@ -116,7 +116,7 @@ public class ArraySort {
 ## 3. **java.util.Arrays**
   - **util package 안의 Arrays class에서 지원하는 static method들..** 
   - type : int, long, short, char, byte, float, double (method overloading이다.)
-  - static vois sort(type[] a)
+  - static voi sort(type[] a)
   - static int binarySearch(type[] a, type key)
   - static int binarySearch(type[] a, int start, int end, type key)
   - static void fill(type[]a , type b) 
