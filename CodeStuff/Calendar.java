@@ -22,9 +22,10 @@ public class LocalDateExample {
 		// weekday 객체의 weekday 값의 numerical value를 반환받기 위해서 getValue() method를 사용한다.
 		// 1 = Monday, 2 = Tuesday, 3 = Wednesday, ... , 6 = Saturday, 7 = Sunday 를 반환한다.
 		
+		
+		// 표현 1
 		System.out.println("Mon Tue Wed Thu Fri Sat Sun");
 		for(int i=1; i<value; ++i) System.out.print("    "); // 적당한 요일에서 시작하기 위하여 앞을 비우는 작업
-		
 		for(int i=1; i <= date.lengthOfMonth(); ++i) {
 			System.out.printf("%3d",i);
 			if(i==today) System.out.print("*");
@@ -32,5 +33,17 @@ public class LocalDateExample {
 			if(value == 7 && i%7==0) System.out.println();
 			else if((i%7) == (8-value)) System.out.println();
 		}
+		
+		// 표현 2
+		System.out.println("\n");
+		for(int i=1; i<value; ++i) System.out.print("    ");
+		while(date.getMonthValue() == month) {
+			System.out.printf("%3d", date.getDayOfMonth());
+			if(date.getDayOfMonth() == today)
+				System.out.print("*");
+			else
+				System.out.print(" ");
+			date = date.plusDays(1);
+			if(date.getDayOfWeek() == DayOfWeek.MONDAY) System.out.println();
 		
 	}
