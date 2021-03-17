@@ -5,6 +5,19 @@
     - abstract / X : abstract class or not
     - final / X : forbidding inheritance or not 
     - strictfp / X : restrict floating-point calculations to ensure portability or not
+
+  - **Role of Classes**
+    - Code template to **create objects**(instances)
+    - A **type for objects** : user-defined-types
+      - Purpose of setting type : memory allocation, type checking(operability, **checking callable method**, ,,)
+  
+  - **Kind of Classes**
+    - **User-defined Classes**
+    - **Library Classes**
+  
+  - **Presence of main method**
+    - **Workhorse class** : without main method
+    - **domain class** / application class : with main method 
     
 ## 1. 메소드, 필드, 생성자
   - **데이터 : 상태정보 : "클래스 내의 인스턴스 변수" : "멤버변수( 마치 cpp 멤버변수 )" : "필드"**
