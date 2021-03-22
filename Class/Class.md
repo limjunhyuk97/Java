@@ -377,7 +377,7 @@ class Employee{
     - 정적 멤버의 가장 중요한 특징은, **객체를 생성하지 않고도, class 내부의 멤버를 사용할 수 있다는 데에 있다.**
       - 사용시에, 참조변수를 통해서 접근할 수도 있으나, **class명. 을 통해서 접근하는 것이 좋다.**
       - **instance member -> static member 사용 불가능  / 정적 멤버는 소속 객체가 없어도 되기 때문**
-      - **static member -> instance member 사용 가능**
+      - **static member -> instance member 사용 가능 / 정적 멤버는 모든 객체들이 공유하기 때문**
 
   - **싱글톤(Singleton)**
     - **오로지 단 하나의 객체만 생성되어야 하는 경우**, **이때 생성된 객체를 싱글톤**이라고 한다.
