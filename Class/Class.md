@@ -102,6 +102,7 @@ public static void check(BankAccount acc){
   - **final 필드(final field)**
     - 상수(final)는 한번 초기화 되면 수정할 수 없다.
     - 상수 필드(final field)에 초기값을 주는 방법 : 필드 생성과 동시에 초기화 / **생성자를 통한 초기화(값이 객체마다 주어져야 하는 경우)**
+    - **final object** can still be mutated!! : final object의 주소 값만 상수취급하는 것, object 내부 값 변경 가능! 
   - **상수 필드(static final field)**
     - 불변의 값(상수)은 객체마다 존재할 필요가 없는 공용성을 갖고 있고, 객체마다 값이 다르면 안된다.
     - static final 선언은 이러한 상수의 조건을 만족시켜준다.
