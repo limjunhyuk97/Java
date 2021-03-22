@@ -354,6 +354,7 @@ date.plusDays(1000);
       - (public static void main : 접근범위 public의, 정적으로 존재하는, 반환형 없는, main 함수)
     - 메소드 메모리 영역에 저장 시에, 클래스 별로 관리되므로, 클래스 로딩이 끝나면 바로 사용 가능.
       - 바이트 코드 파일 내 클래스 -> (클래스 로더 : 클래스 로딩) -> 메소드 영역 저장(static field, static method)
+    - **this.** 로 **객체 내부의 정적 멤버에 접근할 수 없다.** (this는 인스턴스 객체가 스스로를 지칭하는 것
     - **객체들이 공유한다.**
       - 객체들이 얼마나 많이 생성되었는지 나타낼 때 사용가능
       - object의 sequential number를 나타낼 때 사용가능  
@@ -364,7 +365,6 @@ class Employee{
   public void setId() {id = nextId++;}
 }
 ```
-    - **this.** 로 **객체 내부의 정적 멤버에 접근할 수 없다.** (this는 인스턴스 객체가 스스로를 지칭하는 것)
       
   - **인스턴스 멤버 vs 정적 멤버 / 클래스 멤버**
 
