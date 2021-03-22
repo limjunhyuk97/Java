@@ -302,7 +302,9 @@ class A2 extends A1{
 ```
 
   - **getter, setter method**
-    - 한번에 field 값에 접근하는 것을 막음으로써 객체의 무결성을 높인다. 
+    - 한번에 field 값에 접근하는 것을 막는다.
+    - 오류 발생 가능 범위를 줄여준다.
+    - field 값을 받을 때, 잘못된 input의 경우가 들어오는 것을 막을 수 있다.
   
   - **Mutator method, Accessor method**
     - **Mutator method** : mutable (instance 값 변경 가능)
@@ -327,7 +329,7 @@ date.plusDays(1000);
       - **target** 라고도 함
       - **receiver** 라고도 함 
     - **explicit parameter** : number inside the parentheses after the method name (메소드의 인자)
-    - **java 에서는 parameter를 무조건 call-by-value로 받는다!**
+    - **[java 에서는 parameter를 무조건 call-by-value로 받는다!](https://github.com/limjunhyuk97/java_study/blob/master/Type/Swap.md)**
       -  primitive 값, call-by-value로 받는다 : 단순 복사가 일어남
       -  reference 값, call-by-value로 받는다 : 주소값의 단순 복사가 일어남 -> 내부 값의 변경 가능성이 생김
   
