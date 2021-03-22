@@ -20,7 +20,7 @@
     - **domain class** / application class : with main method 
     
 ## 1. 메소드, 필드, 생성자
-  - **데이터 : 상태정보 : "클래스 내의 인스턴스 변수" : "멤버변수( 마치 cpp 멤버변수 )" : "필드"**
+  - **데이터 : 상태정보 : "클래스 내의 인스턴스 변수" : "멤버변수( 마치 cpp 멤버변수 )" : "필드"**  
   - **메소드 : 행동정보 : "클래스 내의 인스턴수 메소드( 마치 cpp 멤버함수 )"**
   - **생성자 : class에서 인스턴스인, 객체를 만들어낼때 필요한 메소드. new 연산자를 통해 호출된다.**
   - class 는 연관있는 데이터와 메소드를 하나로 묶어준다.
@@ -99,15 +99,80 @@ public static void check(BankAccount acc){
   
   - 객체의 고유한 정보, 부품, **상태 정보**를 갖고 있는 속성.
     - **set of fields value is the current state of the object**
-  - **final 필드(final field)**
+  - **field 초기화의 방법**
+    - 생성자를 통한 초기화 (setting value in a constructor)
+    - 명시적 초기화 (assigning value in the declaration, explicit field initialization)
+      - value를 바로 넣어주는 방법
+      - static 메소드를 통한 초기화 사용하는 방법
+    - 초기화 블럭 (setting value in an initialization block)
+      - static field 초기화 (class load 시에 실행, 한번) 
+      - instance field 초기화 (객체 생성시 실행, 여러번)
+  - **field 초기화의 단계**
+
+|field 종류|초기화 우선순위|
+|:---|:---|
+|static field 초기화| 기본값 -> (코드상 순서대로)[ 명시적 초기화 -> 초기화 블럭 ]|
+|instance field 초기화| 기본값 -> (코드상 순서대로)[ 명시적 초기화 -> 초기화 블럭 ] -> 생성자|
+
+```java
+// 필드 초기화 방법 3가지의 예시
+import java.util.*;
+
+public class Employee2 {
+
+	public static int nextId;
+	
+	private int id;
+	private String name = ""; // explicit field initialization
+	private double salary;
+	
+	// static initializaion block
+	static{
+		Random generator = new Random(System.currentTimeMillis());
+		nextId= generator.nextInt(10000);
+	}
+	
+	// object initialization block
+	// 관찰 후 알아낸 것 : default로 초기화 -> explicit field initialization -> initialization block -> constructor 순서로 값이 들어간다했다.
+	// 그래서 nextId에서 여기서 값이 들어갈때 nextId의 n이 들어갔다면, constructor에서는 nextId의 n+1이 들어갈 줄 알았다. 하지만 똑같이 n값이 들어감.
+	// 결과적으로 nextId의 nextId++ 연산은 객체마다 한번 이뤄진다고 볼 수 있을 것 같다.
+	{ id = nextId++; }
+	
+	
+	// no argument constructor
+	Employee2() {}
+	
+	// constructor
+	Employee2(String name, double salary){
+		this.name = name;
+		this.salary = salary;
+	}
+	
+	Employee2(double salary){
+		this("Employ#"+nextId,salary);
+	}
+	
+	public int getId() {
+		return id;
+	}
+	
+	public String getName() {
+		return name;
+	}
+	
+}
+```
+
+  - **instance final field**
     - 상수(final)는 한번 초기화 되면 수정할 수 없다.
     - 상수 필드(final field)에 초기값을 주는 방법 : 필드 생성과 동시에 초기화 / **생성자를 통한 초기화(값이 객체마다 주어져야 하는 경우)**
     - **final object** can still be mutated!! : final object의 주소 값만 상수취급하는 것, object 내부 값 변경 가능! 
-  - **상수 필드(static final field)**
+  - **static final field**
     - 불변의 값(상수)은 객체마다 존재할 필요가 없는 공용성을 갖고 있고, 객체마다 값이 다르면 안된다.
     - static final 선언은 이러한 상수의 조건을 만족시켜준다.
     - **아예 변하지 않는 값들은 정적 상수(static final)로 지정해 주자.**
-
+    - class명.field명으로 사용가능하다.
+ 
 ```java
 
 public class Person {
@@ -124,7 +189,9 @@ public class Person {
     - access modifier : private / public / modifier   
 
   - **생성자의 역할**
-    - new 연산자에 의해서 객체 생성 시에 호출되어, 객체의 초기화를 담당함.
+    - new 연산자에 의해서 객체 생성 시에 호출되어, 객체의 초기화를 담당함
+      - 초기화되지 않은 primitive type : default 값으로 초기화됨
+      - 초기화되지 않은 reference type : null 값으로 초기화됨  
     - 생성자가 실행되지 않으면, 객체가 생성되지 않는다.   
     
   - **기본 생성자**
