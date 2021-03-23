@@ -321,8 +321,18 @@ public class CalendarPractice{
 
 ```
     
-    
-    
+### 6. 초기값이 정해지지 않은 field(변수들)에 들어가는 기본 초기값
+  - byte : 0
+  - char : \u0000
+  - short : 0
+  - int : 0
+  - long : 0L
+  - float : 0.0f
+  - double : 0.0
+  - boolean : false
+  - class (String 포함) : null
+  - array : null
+  - interface : null    
     
     
   
