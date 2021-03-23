@@ -147,11 +147,12 @@ public class ArrayReferenceObjectExample {
 
 ```
 
-  - **향상된 for문(for each 문)**
+  - **향상된 for문(for each 문)** 
     - for( 배열 원소 받을 인자 : 배열 명)
     - 배열 내를 순회하며 꺼낼 수 있는 인자를 모두 꺼낸다.
     - 1차원 배열의 향상된 for문
     - 2차원 배열의 향상된 for문
+    - **배열 내 값에 직접 접근하는 것이 아닌, 내부 값을 복사해서 꺼내는 것이므로, 데이터를 넣는 것이 불가능하다!**
 
 ```java
 
