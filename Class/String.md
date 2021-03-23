@@ -5,7 +5,7 @@
   - String 객체를 생성하여 문자열을 다룬다.
   - 만들어진 문자열들은 String class의 instance들이다.
   - String은 immutable한 class이다. : 재할당은 가능하지만, 값의 변경은 불가능하다.
-  - String = ""은 null의 할당이 아니라, ""(길이 : 0) 문자열의 할당이다.
+  - **String = ""은 null의 할당이 아니라, ""(길이 : 0) 문자열의 할당이다.**
   
 ## String format / String.format(...)
   - String.format(...) : 출력하고자하는 내용을 String에 넣고자 할때 사용할 수 있다.
