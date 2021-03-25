@@ -22,12 +22,39 @@
 ```
  
 ## Package 사용 (Import 문)
- 
-  - **다른 package에서 사용되는 class들을 사용하고 싶으면 package전체나, class를 import해와야 한다.**
-    - package 내부 전체 import : **import package1.package2.\***
-    - package 내부 특정 class import : **import package2.package3.classname**
+
   - class파일의 package 선언과 class 선언 사이에 들어감.
-  - 만약, **다른 위치에 같은 이름의 class가 존재하는데, 모두 import 했다면, class 생성시에 package 포함관계상의 정확한 위치를 기술해야 한다.**
+ 
+### 1. **Import의 방식 (3)**
+  - **다른 package에서 사용되는 class들을 사용하고 싶으면 package전체나, class를 import해와야 한다.**
+  - package 내부 전체 import : **import package1.package2.\***
+  - package 내부 특정 class import : **import package2.package3.classname**
+  - package 내부 특정 static member 사용 : **import static package1.\***
+
+```java
+
+package practice;
+
+import static java.lang.System.*;
+
+public class StaticImportTest {
+	
+	public static void main(String[] args) {
+		
+		out.println("static member import");
+		exit(0);
+		
+	}
+	
+}
+
+
+```
+
+### 2. **Import Class 사용 방식 (2+1) **
+  - 만약, **다른 package, class name 중복이면, 정확한 위치 기술해 줘야 한다.**
+  - class의 fully qualified name 사용
+  - class의 import statement 사용 (class 이름만으로 사용)
 
 ```java
 
