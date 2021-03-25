@@ -52,7 +52,7 @@ public class StaticImportTest {
 
 ```
 
-### 2. **Import Class 사용 방식 (2+1) **
+### 2. Import Class 사용 방식 (2+1)
   - 만약, **다른 package, class name 중복이면, 정확한 위치 기술해 줘야 한다.**
   - class의 fully qualified name 사용
   - class의 import statement 사용 (class 이름만으로 사용)
