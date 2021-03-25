@@ -13,6 +13,7 @@
     - .도트를 이용해서 상위, 하위 포함관계를 바탕으로 패키지를 선언할 수 있다.
   - package에 대한 정보 또한, class에 대한 정보의 일부이므로 (class 존재의 유일성을 만들어주기에), **class를 다른 패키지로 함부로 옮길 수 없다.**
   - **package이름은 소문자로 작성하는 것이 관례**
+  - package 선언이 없는 class는 default package에 포함되게 된다.
  
 ```java
  
@@ -36,18 +37,18 @@
 package practice;
 
 import static java.lang.System.*;
+import static java.lang.Math.*;
 
 public class StaticImportTest {
 	
 	public static void main(String[] args) {
 		
 		out.println("static member import");
-		exit(0);
+		out.println(abs(-4));
 		
 	}
 	
 }
-
 
 ```
 
@@ -74,5 +75,8 @@ class Car{
 
 ```
 
+## Package와 file directory
+
+![package compile](https://user-images.githubusercontent.com/59442344/112436158-00e55e80-8d89-11eb-8a36-1ceaefa3911e.png)
 
 
