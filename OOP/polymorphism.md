@@ -13,7 +13,7 @@
 
 ### 1. [메소드 재정의](https://github.com/limjunhyuk97/java_study/blob/master/OOP/Inheritance.md)
 
-### 2. 타입변환(Promotion)
+### 2. ]타입변환(Promotion)](https://github.com/limjunhyuk97/java_study/blob/master/OOP/Promotion.md)
   - 기본 타입에서 뿐만 아니라, class 사이에서도 상속관계에 의거해서 타입변환이 일어날 수 있다.
   - **같은 객체를 가리키지만, 다른 타입을 갖게** 할 수 있다.
 
