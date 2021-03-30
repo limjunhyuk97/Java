@@ -13,35 +13,5 @@
 
 ### 1. [메소드 재정의](https://github.com/limjunhyuk97/java_study/blob/master/OOP/Inheritance.md)
 
-### 2. ]타입변환(Promotion)](https://github.com/limjunhyuk97/java_study/blob/master/OOP/Promotion.md)
-  - 기본 타입에서 뿐만 아니라, class 사이에서도 상속관계에 의거해서 타입변환이 일어날 수 있다.
-  - **같은 객체를 가리키지만, 다른 타입을 갖게** 할 수 있다.
+### 2. [타입변환(Promotion)](https://github.com/limjunhyuk97/java_study/blob/master/OOP/Promotion.md)
 
-```java
-상위타입 class  상위타입 변수 = 하위타입 객체
-
-class A{}
-class B extends A{}
-class C extends B{}
-class D extends A{}
-class E extends D{}
-// A<-B<-C , A<-D<-E
-
-public class Promotion {
-	public static void main(String[] args) {
-		B b = new B();
-		C c = new C();
-		D d = new D();
-		E e = new E();
-		
-		A a1 = b;
-		A a2 = c;
-		A a3 = d;
-		A a4 = e;
-		
-		B b1 = c;
-		D d1 = e;
-		
-	}
-}
-```
