@@ -107,6 +107,8 @@ public static void check(BankAccount acc){
     - 초기화 블럭 (setting value in an initialization block)
       - static field 초기화 (class load 시에 실행, 한번) 
       - instance field 초기화 (객체 생성시 실행, 여러번)
+      - initialization block은 constructor안에서 실행될 수 있도록 그 안에 복사되어 실행된다.
+        - 직접 호출된 constructor와 간접 호출된 constructor에서 모두 실행될 수 있도록하는 위치에 복사된다. 
   - **field 초기화의 단계**
 
 |field 종류|초기화 우선순위|
@@ -133,9 +135,6 @@ public class Employee2 {
 	}
 	
 	// object initialization block
-	// 관찰 후 알아낸 것 : default로 초기화 -> explicit field initialization -> initialization block -> constructor 순서로 값이 들어간다했다.
-	// 그래서 nextId에서 여기서 값이 들어갈때 nextId의 n이 들어갔다면, constructor에서는 nextId의 n+1이 들어갈 줄 알았다. 하지만 똑같이 n값이 들어감.
-	// 결과적으로 nextId의 nextId++ 연산은 객체마다 한번 이뤄진다고 볼 수 있을 것 같다.
 	{ id = nextId++; }
 	
 	
@@ -144,6 +143,7 @@ public class Employee2 {
 	
 	// constructor
 	Employee2(String name, double salary){
+		// 이 위치로의 initialization block의 복사가 일어난다.
 		this.name = name;
 		this.salary = salary;
 	}
@@ -209,7 +209,7 @@ public class Person {
     - 생성자 오버로딩이 가능한 경우(생성자가 서로 구분되는 경우)는 : 매개변수의 타입과 갯수, 순서가 다른 경우일때만 이다. (CPP의 함수 오버로딩과 비슷함.)
   
   - **생성자 코드 중복 간소화 (this(), 다른 생성자 호출)**
-    - this() 를 통한 다른 생성자의 호출은, 생성자블록의 첫 줄에서만 허용된다.
+    - this() 를 통한 **간접 생성자의 호출은, 생성자블록의 첫 줄에서만 허용**된다 : 필드 초기화 블록의 복사 위치 결정에 영향을 미친다.  
     - 전체적인 초기화 내용을 다루는 생성자 하나를 중심으로, 구체화된 초기화 내용들을 인자로 전달한다.
     
 ```java
