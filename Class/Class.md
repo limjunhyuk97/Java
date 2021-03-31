@@ -376,7 +376,7 @@ class A2 extends A1{
   
   - **Mutator method, Accessor method**
     - **Mutator method** : mutable (instance 값 변경 가능)
-    - **Accessor method** : immutable (instance 값 변경 불가능)
+    - **Accessor method** : immutable (instance 값 변경 불가능) - **방어적 복사를 통한 구현 가능**
 
 ```java
 import java.time.*;
