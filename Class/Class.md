@@ -400,6 +400,19 @@ date.plusDays(1000);
     - **[java 에서는 parameter를 무조건 call-by-value로 받는다!](https://github.com/limjunhyuk97/java_study/blob/master/Type/Swap.md)**
       -  primitive 값, call-by-value로 받는다 : 단순 복사가 일어남
       -  reference 값, call-by-value로 받는다 : 주소값의 단순 복사가 일어남 -> 내부 값의 변경 가능성이 생김
+
+  - **String toString() 메소드**  
+    - toString method returns a string that"textually represents" this object : **객체를 대표하는 문자열을 반환**한다.
+    - **오버로딩을 통해서 사용자가 원하는 형식의 String을 반환가능**.
+
+```java
+public class FOO {
+	private int cnt;
+	public String toString() {
+		return "FOO class #"+cnt;
+	}
+}
+```
   
 ## 5. **멤버 (인스턴스 멤버, 정적 멤버)**
   
