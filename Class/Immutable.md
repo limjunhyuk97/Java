@@ -57,3 +57,89 @@ public class Immutable {
 }
 
 ```
+
+## [Immutable object와 encapsulation](https://github.com/limjunhyuk97/java_study/blob/master/OOP/encapsulation.md)
+  - class 안에 참조타입의 private (final) field가 있는 경우
+    - **해당 field와 메소드(생성자) 매개변수가 직접 상호작용하여 encapsulation이 깨지는 경우가 발생가능**하다.
+    - constructor에서
+    - getter method에서
+    - setter method에서
+  - 이 문제는 **방어적 복사**를 통해서 해결이 가능하다.
+
+```java
+public class Date {
+	private int year;
+	private int month;
+	private int day;
+	
+	Date(int yy, int mm, int dd){
+		year = yy;
+		month = mm;
+		day = dd;
+	}
+	
+	int getYear() { return year; }
+	int getMonth() { return month; }
+	int getDay() { return day; }
+	
+	void setYear(int year) {this.year = year;}
+	void setMonth(int month) {this.month = month;}
+	void setDay(int Day) {this.day = day;}
+	
+	public String toString() {
+		return year+"/"+month+"/"+day;
+	}
+	
+}
+
+public class Lover {
+	private String boyName;
+	private String girlName;
+	private Date Anniversary;
+	// Date class를 field로 이용함
+	
+	public Lover(String bn, String gn, Date date){
+		this.boyName = bn;
+		this.girlName = gn;
+		this.Anniversary = new Date(date.getYear(), date.getMonth(), date.getDay());
+		// 방어적 복사
+	}
+	
+	public Date getAnniversary() {
+		return new Date(Anniversary.getYear(), Anniversary.getMonth(), Anniversary.getDay());
+		// 방어적 복사
+	}
+	
+	void setAnniversary(Date date) {
+		this.Anniversary = new Date(date.getYear(), date.getMonth(), date.getDay());
+		// 방어적 복사
+	}
+	
+	public String toString() {
+		return boyName +" and " + girlName + " : " + Anniversary;
+	}
+}
+
+public class LoverTest {
+	public static void main(String[] args) {
+		
+		Date date = new Date(2021, 2, 24);
+		Lover couple1 = new Lover("Tom", "Lucy", date);
+		System.out.println(date);
+		System.out.println(couple1);
+		System.out.println();
+		
+		date.setYear(2022);
+		System.out.println(date);
+		System.out.println(couple1);
+		System.out.println();
+		
+		date = couple1.getAnniversary();
+		date.setYear(2022);
+		System.out.println(date);
+		System.out.println(couple1);
+		
+		
+	}
+}
+```
