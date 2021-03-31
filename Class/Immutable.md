@@ -64,7 +64,7 @@ public class Immutable {
     - constructor에서
     - getter method에서
     - setter method에서
-  - 이 문제는 **방어적 복사를 통한 immutable한 상태 구현** 해결이 가능하다.
+  - 이 문제는 **방어적 복사를 통한 immutable한 상태 구현**으로 해결이 가능하다.
 
 ```java
 public class Date {
