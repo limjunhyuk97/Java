@@ -59,7 +59,7 @@ public class child extends parent{
   - **메소드를 Overriding하면 부모 class 메소드가, 자식 class 메소드에 가려진다.**
     - override된 메소드 이용 : 그냥 이용
     - 부모 class의 메소드 이용 : super. 로 메소드 호출
-  - **메소드 재정의 조건 (3 + 1)**
+  - **메소드 재정의 조건 (4)**
     - **부모 메소드와 동일한 시그니처**여야 함. (리턴값, 함수명, 매개인자의 갯수, 자료형, 순서가 같아야 함)
     - **접근 제한 조건을 더 강하게 걸 수 없다.** / 접근 제한 조건을 완화할 수는 있다. (cannot reduce the visibility.. 컴파일 오류 발생)
       - public -> protected, private X
