@@ -132,20 +132,24 @@ public class main {
 ## Method overriding과 super
   - **method overriding의 성질과 super를 이용**하면, 자유자재로 **overriding된 method와, overriding되기 전 method 사이를 왕래 할 수 있다!**
 
-```java
-// super class에서
-public String getSalary(){
 
+```java
+// super class : Employee에서
+public double getSalary(){
+  return salary;
 }
 
-// sub class에서
-public String getSalary(){
+// 정상적인 상항. sub class : Manager에서
+public double getSalary(){
+  return super.getSalary() + bonus;
+}
 
-
-// 
-
+// 문제 상황. sub class : Manager에서
+public double getSalary(){
+  return getSalary() + bonus;
+  // recursive한 상황이 발생! sub class내의 method를 계속 recursive하게 호출하는 문제.
+}
 ```
-
 
 
 
