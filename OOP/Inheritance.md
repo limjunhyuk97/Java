@@ -59,13 +59,17 @@ public class child extends parent{
   - **메소드를 Overriding하면 부모 class 메소드가, 자식 class 메소드에 가려진다.**
     - override된 메소드 이용 : 그냥 이용
     - 부모 class의 메소드 이용 : super. 로 메소드 호출
-  - **메소드 재정의 조건 (3)**
-    - 부모 메소드와 동일한 시그니처여야 함. (리턴값, 함수명, 매개인자의 갯수, 자료형, 순서가 같아야 함)
-    - 접근 제한 조건을 더 강하게 걸 수 없다. / 접근 제한 조건을 완화할 수는 있다. (cannot reduce the visibility.. 컴파일 오류 발생)
+  - **메소드 재정의 조건 (3 + 1)**
+    - **부모 메소드와 동일한 시그니처**여야 함. (리턴값, 함수명, 매개인자의 갯수, 자료형, 순서가 같아야 함)
+    - **접근 제한 조건을 더 강하게 걸 수 없다.** / 접근 제한 조건을 완화할 수는 있다. (cannot reduce the visibility.. 컴파일 오류 발생)
       - public -> protected, private X
       - private -> public O
       - 새로운 예외(exception)를 throw할 수는 없다.
-  - **@Override** 라고 overriding 된 부분에 annotation을 적어주는 것이 좋다.
+    - **return type이 subtype인 경우로 다를 수 있다!** (return type can be covariant)
+      - 원래 method의 return type의 subtype을 overriding하는 method가 반환하는 것이 가능하다.   
+    - **@Override** 라고 overriding 된 부분에 annotation을 적어주는 것이 좋다. (컴파일러가 체크한다!)
+      - 혹시나 parameter를 잘못적은 경우 @Override를 적은 경우는 compile error 발생
+      - parameter를 잘못적었으나 @Override를 적지 않은 경우는 overloading이 발생할 수도 있다!
 
 ```java
 
