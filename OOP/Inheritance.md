@@ -22,6 +22,8 @@
     - **super( 매개인자, 매개인자, ,,,)**
       - 부모 클래스의 생성자를 불러온다.
       - super에 전달되는 매개인자의 종류와 갯수, 타입과 일치하는 부모 클래스의 생성자를 불러온다.
+      - super class의 constructor를 호출하지 않으면, no-argument constructor가 invoke된다.
+      - 이 상황에서 no-argument constructor가 없다면 compiler가 error를 생성한다
     
 ```java
 // A package의 parent class
@@ -123,8 +125,26 @@ public class main {
     - final field : 상수 field의 선언이다.
     - final method : 메소드를 재정의할 수 없다는 의미이다.
 
+## Inheritance와 access modifier
+  - **super-class의 private member들에 대해서, sub-class에서 바로 접근할 수 없다!**
+  - 이유는 class단위의 encapsulation 때문이다.
+
+## Method overriding과 super
+  - **method overriding의 성질과 super를 이용**하면, 자유자재로 **overriding된 method와, overriding되기 전 method 사이를 왕래 할 수 있다!**
+
+```java
+// super class에서
+public String getSalary(){
+
+}
+
+// sub class에서
+public String getSalary(){
 
 
+// 
+
+```
 
 
 
