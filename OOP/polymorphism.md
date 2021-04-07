@@ -2,6 +2,8 @@
 
 ## Polymorphism이란?
   - **하나의 요소(객체)** 가 **하나 이상의 타입** 을 갖는 것이다.
+    - super class : sub class 관계는, super type : sub type 관계와 같다.
+    - sub class의 모든 object는 super class의 object이기도 하다.
   - 다형성의 결과는, **하나의 메시지**에 대한 **(하나의 요소/객체 -> 하나 이상의 타입)다양한 대답의 가능성**이다.
     - **하나의 객체 - 하나이상의 타입**
     - **하나의 메시지 - 하나이상의 메소드**
