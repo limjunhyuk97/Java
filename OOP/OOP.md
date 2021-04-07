@@ -1,6 +1,6 @@
 # Java & OOP
 
-## OOP   
+## [OOP](https://github.com/limjunhyuk97/OOP_study/blob/main/Ajou/week03/Lecture_Scrum.md)   
 
  1. **객체란?**
     - **물리적으로 존재**하거나, **추상적으로 생각할 수 있는** 것 중에서 **자신의 속성을 가지고 있고**, **식별가능한 것**.
