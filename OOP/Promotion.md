@@ -35,9 +35,9 @@ public class Promotion {
 
 ## 타입변환의 결과
   - **상위 class에 선언된 member들(field와 method들)에만 접근이 가능**하다.
-  - 단, **메소드가 하위 class에서 재정의 되었다면, 재정의된 메소드가 호출**된다..
+  - 단, **메소드가 하위 class에서 재정의 되었다면, 재정의된 메소드가 호출**된다 : **간접적 호출이든, 직접적 호출이든**
     - cpp에서는 자료형 기준 member 호출 + (virtual) 가상함수를 도입해서 객체 기준 함수 호출을 유도했다.
-    - java에서는 자료형 기준 member 호출 + (기본적으로) 객체 기준 메소드 호출
+    - java에서는 자료형 기준 member 호출 + (기본적으로) 객체 기준 재정의된 메소드 호출
 
 ```java
 public class Parent {
