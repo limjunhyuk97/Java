@@ -15,7 +15,8 @@ public class PayrollSystemTest {
 		System.out.printf("%s%s : $%,.2f%n%n",ce.getName(), " earned", ce.getEarnings());
 		System.out.printf("%s%s : $%,.2f%n%n",boss.getName(), " earned", boss.getEarnings());
 		
-		Employee[] employee = new Employee[4];
+		// polymorphism의 적용
+ 		Employee[] employee = new Employee[4];
 		employee[0] = se;
 		employee[1] = he;
 		employee[2] = ce;
@@ -33,6 +34,7 @@ public class PayrollSystemTest {
 				Manager tmpEm = (Manager)curEm;
 				tmpEm.setBonus(100.0);
 			}
+
 			System.out.printf("%s earned $%,.2f%n%n",
 					curEm.getName(), curEm.getEarnings());
 		}
