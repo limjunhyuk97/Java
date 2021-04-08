@@ -1,3 +1,4 @@
+// 두 번의 상속이 일어난 경우
 public class Manager extends SalariedEmployee {
 	
 	private double bonus;
