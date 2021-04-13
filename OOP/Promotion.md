@@ -39,6 +39,7 @@ public class Promotion {
     - cpp에서는 자료형 기준 member 호출 + [(virtual) 가상함수를 도입해서 객체 기준 함수 호출을 유도](https://github.com/limjunhyuk97/cpp_study/blob/main/week6/chapter09.md)했다.
     - java에서는 자료형 기준 member 호출 + (기본적으로) 객체 기준 재정의된 메소드 호출
   - cpp와 java에서 method overriding에서 차이를 보이는 이유!!
+    - **"특정 class 내" 메소드(멤버 함수)의 주소 정보를 갖는 V-Table** 때문이다. 
     - cpp는 **virtual 선언이 이루어진 것만** V-Table 상의 (멤버함수명, key)에 대한 **(멤버함수의 주소값, value값)이 덮어진다.**
     - 이때문에, virtual 선언 X: 변수 타입 따라서 멤버함수 호출 / virtual 선언 O: 실 객체 타입 따라서 멤버함수 호출
     - java는 **재정의된 method들에 대해서 싹 다** V-Method Table 상의 (멤버함수명, key)에 대한 **(멤버함수의 주소값, value값)이 덮어진다.**
