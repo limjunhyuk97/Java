@@ -2,6 +2,7 @@
 
 
 ## Interface란 무엇인가?
+  - **공통된 행돌들의 묶음**이다!
   - 개발 코드와 객체 사이를 이어주는 역할을 한다.
     - **개발 코드 -> 인터페이스의 추상 메소드 -> 실체 메소드, 재정의된 메소드 실행** 순 
   - 기능의 관점
@@ -71,13 +72,13 @@ public interface RemoteControl {
 	public void turnOff();
 	public void setVolume(int volume);
 	
-	// 디폴트 메소드
+  // 디폴트 메소드
 	public default void foo1() {
 		System.out.println("This is foo1() in class RemoteControl");
 		System.out.println("If you want to change this method, change it!");
 	}
 		
-	// 정적 메소드
+  // 정적 메소드
 	public static void foo2() {
 		System.out.println("This is foo2() in class RemoteControl");
 		System.out.println("You can't change pre-defined foo2() method..!");
@@ -108,39 +109,41 @@ public class Television implements RemoteControl {
 		System.out.println("current TV volume : " + this.volume);
 	}
 	
+	// 구현 객체 내에서 default method를 재정의할 시에는 default 선언은 제외해준다.
 	public void foo1() {
 		System.out.println("foo1() overrided in Television class!");
 	}
 	
+	/* 어짜피 foo2는 static method라서 구현 class 안에 존재할 수 없다!
 	public void foo2() {
 		System.out.println("foo2() overrided in Television class!");
 	}
+	*/
 	
 }
 
 // 인터페이스 사용
 public class RemoteControlExample {
-	public static void main(String[] args) {
+    public static void main(String[] args) {
     
     // 인터페이스에 구현 객체 대입
-		RemoteControl rc1 = new Television();
-		RemoteControl rc2 = new Audio();
+    RemoteControl rc1 = new Television();
+    RemoteControl rc2 = new Audio();
 		
-		rc1.turnOn();
-		rc1.setVolume(5);
-    // 디폴트 메소드
-		rc1.foo1();
-    // 정적 메소드
-		RemoteControl.foo2();
-		rc1.turnOff();
-		System.out.println();
+    rc1.turnOn();
+    rc1.setVolume(5);
+    rc1.foo1();  // 디폴트 메소드
+    RemoteControl.foo2(); // 정적 메소드
+    rc1.turnOff();
+    System.out.println();
 		
-		rc2.turnOn();
-		rc2.setVolume(5);
-		rc2.foo1();
-		RemoteControl.foo2();
-		rc2.turnOff();
-	}
+    rc2.turnOn();
+    rc2.setVolume(5);
+    rc2.foo1();  // 디폴트 메소드
+    RemoteControl.foo2(); // 정적 메소드
+    rc2.turnOff();
+    
+    }
 }
 ```
 
