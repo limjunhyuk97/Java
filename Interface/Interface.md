@@ -144,7 +144,7 @@ public class RemoteControlExample {
 }
 ```
 
-## 다중 인터페이스
+## 다중 인터페이스 구현 클래스
   - 하나의 객체에 여러개의 interface가 구현되있을 수 있다.
   - 이때 객체는 **각 interface 내의 모든 추상 메소드에 대한 실체 메소드를 갖고 있어야** 한다.
 
@@ -163,6 +163,36 @@ public class SmartTelevision implements Searchable, RemoteControl{
     - **메소드 로컬변수** : 메소드의 interface 로컬변수에 구현 객체 저장
 
 ```java
+
+// Interface 와 구현 객체
+public interface RemoteControl <- Television, Audio
+
+// MyClass class
+public class MyClass {
+	
+	RemoteControl rc = new Television();
+	
+	MyClass(){}
+	
+	MyClass(RemoteControl rc){
+		this.rc = rc;
+		rc.turnOn();
+		rc.setVolume(3);
+	}
+	
+	
+	void methodA() {
+		RemoteControl rc = new Audio();
+		rc.turnOn();
+		rc.setVolume(7);
+	}
+	
+	void methodB(RemoteControl rc) {
+		rc.turnOn();
+		rc.setVolume(8);
+	}
+}
+
 public class MyClassExample {
 	public static void main(String[] args) {
 		System.out.println("1--------------");
@@ -266,11 +296,64 @@ public class CarExample {
 	}
 }
 
-// 매개변수 다형성
+// 매개변수 다형성 + 강제 타입 변환 + instanceof이용
+public interface Vehicle {
+	public void run();
+}
+
+public class Car implements Vehicle{
+	public void run() {
+		System.out.println("Car runs!");
+	}
+}
+
+public class Bus implements Vehicle{
+	public void run() {
+		System.out.println("Bus runs!");
+	}
+	public void checkFare() {
+		System.out.println("Checking bus fare");
+	}
+}
+
+public class Driver {
+	public void drive(Vehicle vehicle) {
+		vehicle.run();
+	}
+	
+	// 강제 타입 변환 + instanceof 이용
+	public void getFare(Vehicle vehicle) {
+		if(vehicle instanceof Bus) {
+			Bus bus = (Bus)vehicle;
+			bus.checkFare();
+		}
+		else {
+			System.out.println("This is not a bus!");
+		}
+	}
+}
+
+public class Simulator {
+	public static void main(String[] args) {
+		// 매개변수의 다형성
+		Driver driver = new Driver();
+		driver.drive(new Car());
+		driver.drive(new Bus());
+		
+		// 강제 타입 변환 + instanceof 이용
+		Bus bus = new Bus();
+		Car car = new Car();
+		
+		driver.getFare(bus);
+		driver.getFare(car);		
+	}
+}
 
 ```
 
-## Interface의 상속
+## Interface의 상속과 다중 상속
+  - class에서와는 다르게 Interface는 다중상속을 지원한다.
+  - 상위 Interface1, 상위 Interface2를 
 
 
 
