@@ -15,6 +15,7 @@
   - 디폴트 메소드가 **sub-interface에서 재정의되었다면**, 재정의된 내용이 디폴트 메소드가 된다.
   - 디폴트 메소드가 **서로 다른 sub-interface에서 재정의되었다가 다신 하나의 sub-interface의 super-interface로 작용한다면**, 컴파일 오류가 발생한다.
     - 즉, 디폴트 메소드의 여러번 재정의된 사항이 충돌한다면, 컴파일 오류가 발생한다.
+    - [interfaces clash rule / superclasses win rule 로 해결](https://github.com/limjunhyuk97/java_study/new/master/Interface)
 
 ### 4. 정적 메소드
   - 정적 메소드는 상속되지 않는다!
