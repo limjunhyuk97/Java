@@ -45,8 +45,8 @@ public class Employee implements Comparable<Employee> {
   // Comparable interface의 compareTo()를 Override해서 적용한다.
   // 마치 CPP의 operation overloading과 비슷한 느낌이다.
 	public int compareTo(Employee other) {
-    // Double.compare(n1, n2) : n1 > n2, 양수 / n1 == n2, 0 / n1 < n2, 음수 return
-    return Double.compare(salary, other.salary);
+          // Double.compare(n1, n2) : n1 > n2, 양수 / n1 == n2, 0 / n1 < n2, 음수 return
+          return Double.compare(salary, other.salary);
 	}
 }
 
