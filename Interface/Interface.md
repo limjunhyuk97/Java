@@ -243,3 +243,8 @@ public class MyClassExample {
 	}
 }
 ```
+
+## 인터페이스 쓰임
+  - callback
+  - compartor
+  - clonable
