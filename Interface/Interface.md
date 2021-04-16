@@ -2,7 +2,9 @@
 
 
 ## Interface란 무엇인가?
-  - **공통된 행들의 묶음**이다!
+  - **공통된 행동들(abstract methods)의 묶음**이다!
+    - external views(behavoir) of a class
+    - contracts for a class 
   - 개발 코드와 객체 사이를 이어주는 역할을 한다.
     - **개발 코드 -> 인터페이스의 추상 메소드 -> 실체 메소드, 재정의된 메소드 실행** 순 
   - 기능의 관점
@@ -26,10 +28,15 @@
 |:---:|:---:|
 |HAS-A|IS-A|
 |행동의 공통성|속성의 공통성|
-|기본 사용 설명서|미완의 설계도|
-|class, 객체에 여러 interface 동시 적용(implement) 가능|class, 객체에 여러 abstract class 동시 적용(inherit)불가능|
+|사용 설명서|미완의 설계도|
+|class, 객체에 여러 interface 동시 적용(implement) 가능|class, 객체에 여러 abstract class 동시 적용(inherit)불가능| 
 
 ![interface, abstract class](https://user-images.githubusercontent.com/59442344/114558944-2ab5e500-9ca6-11eb-80ab-49b07218daf4.png)
+
+
+## class와 interface
+  - class is the subtype of interfaces (is-A relationship ) : class는 interface의 sub-type이다!
+  - class conforms to interfaces : class는 interface에 정의된 내용을 따른다.
 
  
 ## Interface의 구성(4)과 구현
@@ -66,7 +73,7 @@ public interface RemoteControl {
   // 정적 상수 필드
 	public static int MAX_VOLUME = 10;
 	public static int MIN_VOLUME = 0;
-	
+	 
   // 추상 메소드
 	public void turnOn();
 	public void turnOff();
