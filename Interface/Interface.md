@@ -56,6 +56,17 @@
 
 ### 3. 디폴트 메소드
   - **선택적으로 재정의 하거나, 그냥 이용할 수 있다.**
+    - 굳이 모든 경우에 대한 재정의가 필요 없을 경우, default method를 사용할 수 있다.
+    - 만약 defalut method가 존재하지 않는다면, interface에 나중에 abstract method만 추가할 수 있는데, 이는 수많은 구현 class의 compile error 문제를 낳는다.
+  - **abstract method를 호출할 수 있다.**
+```java
+public interface Collection{
+  public int size(); // abstract method
+  default boolean isEmpty() { return size()==0 ;}
+  // 정의되지 않는 size() method를 호출한다.
+  // 실체 클래스에서 재정의됬을 때, dynamic binding에 의해 적절한 size() method가 호출될 것이다.
+}
+```
   - **인터페이스 변수, 클래스 변수를 통해서 재정의 된 메소드가 호출된다.**
   - [public] default [반환형] [메소드명] ( [매개인자들] ... ) 형식을 갖는다.
 
