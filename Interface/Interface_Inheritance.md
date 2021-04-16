@@ -50,11 +50,9 @@ public interface B1 extends A{
 public interface B2 extends A{
 	public void fooB2();
 	public void fooB3();
-	/* 아래와 같은 dFoo()의 재정의시에 conflict 발생. 다중 상속의 문제 발생.
 	public default void dFoo() {
 		System.out.println("Overrided dFoo() in interface B1");
 	}
-	*/
 	public static void stFoo() {
 		System.out.println("stFoo() in B2");
 	}
@@ -64,6 +62,16 @@ public interface B2 extends A{
 public interface C extends B1, B2 {
 	public void fooB3();
 	public void fooC();
+	// dFoo()에 대한 별다른 정의를 해주지 않을 경우, 문제 발생
+	
+	//  새로 사용할거면 새로 정의해주면 됨
+	public default dFoo(){}
+	
+	// 이전 내용을 사용할거면 B1, B2의 dFoo() 중 하나를 선택해야 함
+	public default dFoo(){
+	  d1.super.dFoo();
+	  // super class들 중, d1의 dFoo를 사용하겠습니다.
+	}
 }
 
 // A - ObjA
