@@ -49,6 +49,11 @@ public interface B1 extends A{
 public interface B2 extends A{
 	public void fooB2();
 	public void fooB3();
+	/* 아래와 같은 dFoo()의 재정의시에 conflict 발생. 다중 상속의 문제 발생.
+	public default void dFoo() {
+		System.out.println("Overrided dFoo() in interface B1");
+	}
+	*/
 	public static void stFoo() {
 		System.out.println("stFoo() in B2");
 	}
