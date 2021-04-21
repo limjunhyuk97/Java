@@ -33,6 +33,7 @@
   
   - **private**
     - 같은 패키지에서 호출 X (해당 클래스 내부에서의 호출은 O), 다른 패키지에서 호출 X
+    - private member는 subclass에서 직접 호출할 수 없다.
     
   - **default**
     - access modifier 선언을 생략하면 default modifier 접근 제한을 갖는다.
@@ -48,6 +49,7 @@
   
   - **private**
     - 같은 패키지에서 호출 X (해당 클래스 내부에서의 호출은 O), 다른 패키지에서 호출 X
+    - private member는 subclass에서 직접 호출할 수 없다.
     
   - **default**
     - access modifier 선언을 생략하면 default modifier 접근 제한을 갖는다.
