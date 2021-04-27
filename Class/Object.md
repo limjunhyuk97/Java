@@ -28,6 +28,8 @@ public class Manager extends Employee { ... } // indirect
 ## Useful Method
 
 ### 1. .equals() Method
+  - **(기본적으로) 같은 객체를 참조하고 있는 지에 대해서 test**하는 것이다.
+  - **(Overriding하면) 객체가 같은 내용을 담고 있는지 확인할 수 있다.**
   - 객체와 객체를 **사용자가 정한 기준을 바탕으로 비교할 수 있게 해주는 method**
   - 두 객체의 field 값들이 같은지를 비교하는 equals method를 만든 것이다.
   
@@ -44,16 +46,16 @@ public class Foo {
 	// 같은 class 객체간 field값 비교
 	public boolean equals(Object object) {
 		
-		// 둘이 아예 같은 객체를 가리키고 있는 경우
+		// 둘이 같은 객체를 가리킴
 		if(this == object)	return true;
 		
-		// 상대방이 null인경우 
+		// 상대방이 null
 		if(object == null) return false;
 		
-		// 내 class와 상대방 class가 다른 경우
+		// 둘이 class가 다름
 		if(getClass() != object.getClass()) return false;
 		
-		// 상대방이 null이 아니고, 내 class와 상대방 class가 같은 경우
+		// 같은 객체 X, 상대방 null X, 상대방과 같은 class O
 		// 강제 타입 변환을 통해 Foo class로 바꿔줌 + 각 field값 비교 결과를 return
 		Foo foo = (Foo)object;
 		return (foo.fooInt == fooInt) && (foo.fooDouble == fooDouble);
