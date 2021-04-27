@@ -38,6 +38,7 @@ public class SmartPhone extends Phone{
   - **자식 클래스에서 추상메소드의 내용을 반드시 정의해줘야** 한다. (정의해주지 않으면 컴파일 에러 발생)
   - 메소드의 선언부만 있고, **중괄호 내의 실행 부분의 내용은 없다.**
     - [public/protected/private/(default)] abstract [return type] [method name] ( 타입 변수명 ,,,);
+    - **'abstract' 지시자 생략해도 무방**하다.
   - 추상 클래스를 상속했지만, **여전히 내부에 정의되지 않은 추상 메소드가 있다면, 여전히 추상클래스**이다!
 
 ```java
