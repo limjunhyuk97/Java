@@ -136,7 +136,11 @@ public int hashCode() {
   - **사용자가 원하는 String 모습으로 toString 메소드를 Overriding 시킬 수 있다.**
 
 ### 4. getClass() method
-  - **실제 변수가 참조하고 있는 객체의 class 정보를 제공**한다.
+  - **리턴 값으로 "Class" 클래스의 객체를 반환한다.**한다. 
+  - **Class 클래스의 다양한 메소드**
+    - .getClass().getName() : package상위치.class명
+    - .getClass().getSuperclass() : class의 superclass명
+    - .getClass().getDeclaredFields() : field들을 배열로 반환
   
 ```java
 public class Test {
