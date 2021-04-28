@@ -20,6 +20,9 @@ public interface Comparable<T>{
 ```
 
 ## Comparable interface 예시
+  - compareTo() 메서드 return 값이
+    - 양수면 바꾸고
+    - 0이나 음수면 안바꾼다
   - java.lang.Comparable<T> : int compareTo(T other)
   - java.util.Arrays : static sort(Object[] a)
   - java.lang.Double : static int compare(double x, double y)
