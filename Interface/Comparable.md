@@ -4,6 +4,7 @@
   - **sort 사용하려면 Comparable interface를 implement 하고, compareTo()를 재정의 해야한다.**
     - **Comparable interface** : public interface Comparable : int compareTo(Object other)
     - **generic한 Comparable interface** : public interface Comparable<T> : int compareTo(T other)
+  - .equals()에서 같다고 정의한 기준과 compatible해야한다. (equals가 true인 상태와 compareTo()가 0인 상태가 일치해야 한다!)
   - Comparable interface는 다음과 같은 모습을 한다. (lambda expression)
 
 ```java
