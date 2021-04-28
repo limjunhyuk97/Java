@@ -41,6 +41,8 @@
 
  
 ## Interface의 구성(4)과 구현
+  - interface의 모든 method는 자동으로 public 선언이 된다.
+  - class에서 implement할때는 자동으로 default 선언되기에, public으로 선제적으로 선언해주는 것이 필요하다.
 
 ### 1.상수 필드
   - **절대적으로 수정이 불가능**
