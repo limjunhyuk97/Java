@@ -25,6 +25,9 @@ public class comparatorPoint implements Comparator<comparablePoint> {
 			return n2.getY() - n1.getY();
 	}
 }
+
+// main method에서의 사용
+Arrays.sort(pArr, new comparatorPoint());
 ```
 
 ### 2. 익명객체 생성
