@@ -1,15 +1,15 @@
 # Cloneable
 
 
-## Cloneable interface
-  - **깊은 복사가 이루어지도록 도와주는 interface**
-  - interface 자체에는 메소드가 없음
-  - **Cloneable interface를 implement** 하고, **Object class**의 **protected method**인 **clone() 메소드**를 재정의 한다.
-  - **protected로 정의되어 있기에**, **clone() 메소드 사용하려면, Cloneable interface를 implement하고 public으로 redefine해주는 과정이 필요**하다.
-
 ## clone() method
+  - clone() method 자체는 **Object class 내에 있다.**
+  - clone() method는 **Object 객체를 반환한다. 타입변환이 요구된다.**
+  - clone() method는 **객체 내 field 값의 복사를 유도**한다.
+    - primitive type field나 immutable한 field 객체에 대해서는 copy가 아닌 clone이 문제없이 가능하다.
+    - mutable한 field 객체에 대해서는 reference 값의 복사를 유도한 것이기에, deep copy를 위해서 한단계 더 들어간 cloning이 요구된다.
+    - e.g. " hireDay.clone() "는 hireDay 내부의 field 값의 복사를 유도한다! = Employee의 field : hireDay의 field들(primitive type) clone해서 전달.
+  - Cloneable interface는 개발자가 cloning에 대해서 이해하고 있음을 나타내는 tag에 불과하며, exception 발생시키는 수단이다.
 
-### clone() 메소드를 허용하지 않을 것인가? 깊은 복사를 이용할 것인가? 얕은 복사를 이용할 것인가?
 
 ### 1. 얕은 복사만 허용
   - clone() 메소드는 기본적으로 번지 값을 공유하는 얕은 복사를 지원한다.
@@ -25,16 +25,18 @@
 ## Cloneable example
 
 ```java
-// Cloneable class
 package clonable;
 
 import java.util.Date;
 import java.util.GregorianCalendar;
 
+// Cloneable이라는 interface를 implement한 것은, merely serves as a tag. (그저 tag에 지나지 않는다!)
+// 개발자가 이 class 내의 cloning process를 인지하고 있다는 것과 같다.
 public class Employee implements Comparable<Employee>, Cloneable{
 	
 	private String name;
 	private double salary;
+	// Date는 mutable한 class이다.
 	private Date hireDay;
 	
 	public Employee(String name, double salary) {
@@ -43,11 +45,12 @@ public class Employee implements Comparable<Employee>, Cloneable{
 		this.hireDay = new Date();
 	}
 	
-	// custom object를 위한 깊은 복사용 clone을 재정의 해주는 과정.
+	// custom object를 
 	public Employee clone() throws CloneNotSupportedException{
 		// Object.clone() 호출 + 얕은 복사 시행
+		// clone() 메소드가 언제나 Object 형을 반환하기 때문에, (Employee)를 통한 형변환이 요구된다..!
 		Employee cloned = (Employee)super.clone();
-		// hireDay field에 대해서 깊은 복사 시행
+		// hireDay field에 대해서는 깊은 복사 시행
 		cloned.hireDay = (Date) hireDay.clone();
 		return cloned;
 	}
@@ -79,6 +82,7 @@ public class Employee implements Comparable<Employee>, Cloneable{
 	}
 	
 }
+
 
 // Cloneable test class
 package clonable;
