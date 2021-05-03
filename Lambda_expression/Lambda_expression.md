@@ -88,7 +88,7 @@ Arrays.sort(arr, new LengthComparator());
 
 #### code
 ##### 1. {} / (String first, String second) -> ['return' 생략가능] first.length() - second.length();
-##### 2.    / (String first, String second) -> {return 0;}
+##### 2. {} / (String first, String second) -> {return 0;}
 
 ### Code Example
 
