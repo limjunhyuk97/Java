@@ -47,14 +47,15 @@ Arrays.sort(arr, new LengthComparator());
 ## Functional Interface의 사용방식(3)
 
 ### 1. Functional interface에 대한 class 구현
-  - 함수를 parameter로 바로 전달할 수 없으니 함수를 포함한 객체를 만들어 전달하는 것.
+  - 함수를 parameter로 바로 전달할 수 없으니 함수를 포함한 객체를 만들어 전달
 
 ### 2. Functional interface에 대한 annonymous inner class 구현
-  - 필요한 곳에서 바로 interface 구체화한 객체 
+  - 필요한 곳에서 바로 interface 구체화한 객체를 전달 
 
 ### 2. Lambda Expression을 사용
-  - interface의 instance를 바로 구현하여 즉시 사용하는 것이다.
+  - interface의 abstract instance method를 lambda로 바로 구현하여 즉시 사용
   - 코드의 간결성 제공
+  - functional interface에 더 많은 유연성 제공
 
 
 ## First class Citizen
@@ -180,12 +181,85 @@ public class MyFunctionMySupplierTest {
 public interface Predicate<T> {
   boolean test(T t);
 }
+
+// predicate example
+import java.util.function.Predicate;
+import static java.lang.Math.*;
+
+public class PredicateExample {
+	
+	// generic interface를 사용하려면 generic type을 구체화 해주어야 한다.
+	public static int filter(Predicate<Integer> p, int num) {
+		if(p.test(num))
+			return 5;
+		else
+			return 0;
+	}
+	
+	public static void main(String[] args) {
+		
+		int[] score = new int[10];
+		int filter1 = 0, filter2 = 0;
+		
+		for(int i=0; i<10; ++i) {
+			score[i] = (int)(random() * 100) + 1;
+		}
+		
+		for(int i = 0; i<10; ++i) {
+			System.out.printf("%d 번째 학생 점수 = %d\n", i+1, score[i]);
+			// predicate에 대한 lambda expression
+			filter1 += filter((n)->{ return n>80;}, score[i]);
+			filter2 += filter(n->{if(n>20) return true; else return false;}, score[i]);
+		}
+		System.out.println("filter1 : " + filter1);
+		System.out.println("filter2 : " + filter2);
+		
+	}
+}
+
 ```
 
 ### 2. Consumer
 ```java
 public interface Consumer<T> {
   void accept(T t);
+}
+
+// Consumer Example
+// interface Consumer를 들여올 수 있다.
+import java.util.function.*;
+
+public class ConsumerExmaple {
+	
+	// interface Consumer를 들여와서 매개수 타입으로 사용할 수 있다.
+	public static void filter(Consumer<Student> a, Student s) {
+		a.accept(s);
+	}
+	
+	public static void main(String[] args) {
+		Student[] sList = new Student[5];
+		for(int i=0; i<5; ++i) {
+			sList[i] = new Student();
+		}
+		sList[0].name= "tom";
+		sList[1].name= "jack";
+		sList[2].name= "megan";
+		sList[3].name= "chris";
+		sList[4].name= "brown";
+		
+		for(int i=0; i<5; ++i) {
+			sList[i].score = (int)(Math.random()*100) + 1;
+			System.out.print(sList[i].name + " , score : " + sList[i].score);
+			filter(a->{
+				if(a.score>80) System.out.printf(" : A Grade");
+			else if(a.score>60)System.out.printf(" : B grade");
+			else if(a.score>40)System.out.printf(" : C grade");
+			else System.out.print(" : failed");
+				System.out.println();}, sList[i]);
+			
+		}
+
+	}
 }
 ```
 
@@ -194,6 +268,44 @@ public interface Consumer<T> {
 public interface Supplier<T> {
   T get();
 }
+
+// Supplier Example
+import static java.lang.Math.random;
+
+import java.util.function.*;
+
+public class SupplierExample {
+	
+	public static void compliment(Supplier<String> g, Student s) {
+		if(s.score >=80)
+			System.out.print(g.get());
+	}
+	
+	
+	public static void main(String[] args) {
+		
+		
+		Student[] sList = new Student[5];
+		// list 각각에 객체 부여하는 것 잊으면 안됨..!
+		for(int i=0; i<5; ++i) {
+			sList[i] = new Student();
+		}
+		sList[0].name= "tom";
+		sList[1].name= "jack";
+		sList[2].name= "megan";
+		sList[3].name= "chris";
+		sList[4].name= "brown";
+		
+		for(int i=0; i<5; ++i) {
+			sList[i].score = (int)(Math.random()*100) + 1;
+			System.out.print(sList[i].name + " , score : " + sList[i].score);
+			compliment(()->{return " Great job!";}, sList[i]);
+			System.out.println();
+		}
+		
+	}
+}
+
 ```
 
 ### 4. Function
@@ -201,6 +313,28 @@ public interface Supplier<T> {
 public interface Function<T, R> {
  R apply(T t);
 }
+
+// Function Example
+import java.util.function.*;
+import java.util.Scanner;
+
+public class FunctionExample {
+
+	public static int newOp(Function<Integer, Integer> f, int n) {
+		return f.apply(n);
+	}
+	
+	public static void main(String[] args) {
+		int num;
+		Scanner sc= new Scanner(System.in);
+		
+		System.out.print("number 1 : ");
+		num = Integer.parseInt(sc.nextLine());
+		System.out.println(" ^^ " + num +" = " + newOp( (a)->{return a*a - a*(a/2);} ,num));
+		
+	}
+}
+
 ```
 
 
