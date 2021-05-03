@@ -337,9 +337,58 @@ public class FunctionExample {
 
 ```
 
+## Lambda Expression과 Single method
+  - syntactic sugar라고 한다.
+  - 한종류의 method를 lambda expression으로 넘겨줄 경우 사용할 수 있다
 
+### 1. object::instanceMethod
 
+### 2. Class::staticMethod
 
+### 3. Class::instanceMethod
 
+```java
+public class SyntacticSugar implements foo{
+	
+	public void function(String str) {
+		System.out.println(str);
+	}
+	
+	public void funcion2(foo f, String str) {
+		f.function(str);
+	}
+	
+	public void function3(String str) {
+		System.out.println(str +" " + str);
+	}
+	
+	public static void main(String[] args) {
+		
+		SyntacticSugar ss = new SyntacticSugar();
+		
+		// object::instanceMethod
+		ss.funcion2(System.out::println, "syntacticsugar sweet");
+		// Class::instanceMethod
+		ss.funcion2(ss::function3, "more sugaaarrr!");
+	}
+}
+```
 
+## Variable Scope (free variable 문제 / capture as final)
+  - lambda expression 외부에 있는 변수를 사용하는 경우
+  - lambda expression 내부에서 밖에 있는 값(free variable)을 사용하려 한다면, error가 발생한다.
+  - A lambda variable can only capture variable whose value is **effectively final**
+    - 즉, **외부에 있는 값을 들여오면, capture되어 내부에서 변경불가능**해진다.
+    - **lambda에게 capture되면, 외부에서도 값 변경 불가능**하다!
+
+```java
+public static void countDown(int start, int delay){
+  ActionListener listener = event ->
+  {
+    start--; // Error : Can't mutate captured variable(free variable)
+    System.out.println(start);
+  }
+  new Timer(delay, listener).start();
+}
+```
 
