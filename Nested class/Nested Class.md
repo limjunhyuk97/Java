@@ -277,8 +277,10 @@ class foo{
   - **Instance member만 갖을 수 있다.**
   - **method내부에서만 사용되므로**
     - **class 에 대해서, Access modifier가 필요 없다 (member들에 대해서는 필요하다)**
+      - Local inner class 내의 inner class 들에게도 access modifier 필요 없다. 
     - **외부에서 이 class에 대한 instance를 만들 수 없다.**
-    - **instance 에 접근할 수 있다.**
+    - **method -> inner class 내부의 variable 접근 가능**
+    - **inner class -> method 내부의 variable 접근 가능**
   - **Captures variables**
     - lambda expression에서처럼, class instance의 외부 값이 capture되면, final처럼 변경되지 않는다. 
 
