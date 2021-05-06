@@ -18,6 +18,9 @@
 
 ### 5. [java.lang.Comparable](https://docs.oracle.com/javase/8/docs/api/java/lang/Comparable.html)
 
+### 6. [java.lang.Number](https://docs.oracle.com/javase/8/docs/api/java/lang/Number.html)
+  - 수에 대한 wrapper class의 direct super class이다.
+
 ## [java.util.\*](https://docs.oracle.com/en/java/javase/14/docs/api/java.base/java/util/package-summary.html)
   - can find all collections and data structures available in java
   
