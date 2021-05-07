@@ -143,6 +143,7 @@ public class ExceptionTest {
   - **runtime exception(unchecked exception)은 굳이 throw를 declare 해줄 필요가 없다!** (알아서 내보낸다.)
 
 ```java
+// 굳이 ArithmeticException을 선언하지 않아도 catch에서 잡을 수 있음
 public static int quotient(int num, int denom) throws ArithmeticException { ... }
 public static int quotient(int num, int denom) throws ArithmeticException, NumberFormatException { ... }
 ```
