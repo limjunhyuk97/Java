@@ -139,8 +139,8 @@ public class ExceptionTest {
 
 
 ## Declaring Exceptions
-  - method안에서 exception이 발생하는 경우를 throw 시키기 위해서 시그니처에 throw clause를 정의할 수 있다.
-  - **runtime exception(unchecked exception)은 굳이 throw를 declare 해줄 필요가 없다!** (알아서 내보낸다.)
+  - method안에서 exception이 발생하는 경우를 'throws' 시키기 위해서 시그니처에 'throws' clause를 정의할 수 있다.
+  - **runtime exception(unchecked exception)은 굳이 'throws'를 declare 해줄 필요가 없다!** (알아서 내보낸다.)
 
 ```java
 // 굳이 ArithmeticException을 선언하지 않아도 catch에서 잡을 수 있음
