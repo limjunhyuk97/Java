@@ -48,7 +48,6 @@
 ### 3가지 Exception
 
 ### 1. Error Exception (unchecked Exception)
-  - **치명적인 예외상황을 발생시키는 경우이므로** 예외처리/수정 강제
   - Java runtime system의 내부적인 error와 resource exhaustion 을 잡아낸다.
   - **개발자가 보통 만지는 부분이 아니고**, Java에서 자체적으로 던지는 error이다.
 
