@@ -47,6 +47,8 @@
 
 ### 3가지 Exception
 
+<img src="https://user-images.githubusercontent.com/59442344/117425873-32dc0a00-af5e-11eb-8d40-a768c742350b.jpg" height=70% width=70%>
+
 ### 1. Error Exception (unchecked Exception)
   - Java runtime system의 내부적인 error와 resource exhaustion 을 잡아낸다.
   - **개발자가 보통 만지는 부분이 아니고**, Java에서 자체적으로 던지는 error이다.
