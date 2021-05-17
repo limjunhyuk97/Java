@@ -238,11 +238,12 @@ public class LowerBoundedWildCards {
 }
 ```
 
-## 3. UnBounded WildCard
+## 4. UnBounded WildCard
   - 사용이 상당히 제한된다.
   - 모든 경우 Object로 받아야 한다.
   - 어떤 type에도 종속되지 않는 작업을 수행할 때 사용한다.
 
-
+## 5. WildCard 어디서 쓰냐?
+  - Collection framework들 이용을 위해서 그 쓰임을 해석할 때 필요한 개념이다!
 
 
