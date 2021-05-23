@@ -119,7 +119,7 @@ class Manager extends Employee{
 ```
 ## 3. Lower Bounded WildCard
   - **type parameter의 상속**과 **super class로 올라가는 상속관계** 연결시키기 위해서 사용한다.
-  - classA <? super superClass> classA_타입_변수
+  - classA <? super subClass> classA_타입_변수
   - **Lower Bounded WildCard와 generic class, method의 사용**
     - (generic class) field에 값 초기화, setter는 문제 없다 + getter는 문제 발생.
     - (generic method) method parameter, method 값 return은 문제 없다.
