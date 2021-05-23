@@ -5,7 +5,7 @@
   - **class definition 전반에 type variable이 사용**된다 : field, return type, local variable ...
     - type variable 명칭 : T(ype), E(lement), K(ey), N(umber), V(alue), S U V
   - T를 특정해주는 **substituting** -> substitute 된 class를 이용하여 **Instantiating**
-    - class A\<T> -> class A\<String> -> A a
+    - class A\<T>   /   A \<String>   /   A \<String> a
     - **substituting -> instantiating**
 
 ```java
