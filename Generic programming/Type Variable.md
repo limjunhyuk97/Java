@@ -88,6 +88,7 @@ class ArrayAlg2{
 ```
   
 ### 해결 : extends를 이용해서(상속의 의미 아님), T를 어떤 class 군으로 한정 짓는다.
+  - **Bounded Type parameter**
 
 ```java
 class ArrayAlg2{
