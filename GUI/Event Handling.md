@@ -41,20 +41,137 @@ button.addActionListener(listener);
 
 ## Button Test
 
-### 1. Button 만들기
+### 1. Button 사용 예시의 구현
+  - Event Source : Button 포함된 JFrame 형성
+  - Button click event에 따라 JPanel 색상 바꾸는 Event Listener 
 
-### 2. 만든 Button을 JPanel에 붙이기
+```java
+// Frame 
+package button;
 
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
 
+// Button이 존재하는 JFrame 객체 
+public class ButtonFrame extends JFrame{
+	
+	private JPanel buttonPanel;
+	private static final int DEFAULT_WIDTH = 300;
+	private static final int DEFAULT_HEIGHT = 200;
+	
+	public ButtonFrame() {
+		setSize(DEFAULT_WIDTH, DEFAULT_HEIGHT);
+		
+		// button 만들고
+		JButton yellowButton = new JButton("Yellow");
+		JButton blueButton = new JButton("Blue");
+		JButton redButton = new JButton("red");
+		
+		// panel 만들고
+		buttonPanel = new JPanel();
+		
+		// panel에 button 붙이기
+		buttonPanel.add(yellowButton);
+		buttonPanel.add(blueButton);
+		buttonPanel.add(redButton);
+		
+		// frame에 panel component 붙이기
+		// frame 속에서 add 했기 때문에, 자기 자신에게 붙이는 것
+		add(buttonPanel);
+		
+		// button click event에 대한 event Listener (ActionListener) 객체 형성
+		ColorAction yellowAction = new ColorAction(Color.YELLOW);
+		ColorAction blueAction = this.new ColorAction(Color.BLUE);
+		ColorAction redAction = this.new ColorAction(Color.RED);
+		
+		// button들과 event Listener 결합
+		yellowButton.addActionListener(yellowAction);
+		blueButton.addActionListener(blueAction);
+		redButton.addActionListener(redAction);
+	}
 
+	// Button이 생성하는 event에 대한 Event Listener 형성
+	// 해당 Frame에만 해당하는 사항이기 때문에, private inner class를 생성
+	private class ColorAction implements ActionListener{
+	
+		private Color backgroundColor;
+		
+		// backgroundColor 뭘로 받을지 생성자로 설정한다.
+		public ColorAction(Color c) {
+			backgroundColor = c;
+		}
+		
+		// event에 대한 행동을 결정하는 actionPerformed method를 구현한다.
+		// panel의 background 색상을 변경한다.
+		public void actionPerformed(ActionEvent evnet) {
+			buttonPanel.setBackground(backgroundColor);
+		}
+		
+	}
+	
+}
 
+// Frame 사용
+import java.awt.EventQueue;
+import javax.swing.JFrame;
 
+public class ButtonTest {
+	public static void main(String[] args) {
+		EventQueue.invokeLater(()->{
+			JFrame frame = new ButtonFrame();
+			frame.setTitle("Button test");
+			frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+			frame.setVisible(true);
+		});
+	}
+}
+```
 
+### 2. Lambda expression
+  - Lambda expression을 이용하여 Event Listener를 더 잘 간결히 표현할 수 있다.
+  - 이를 바탕으로 JFrame 내부에 EventListener add한, JButton 붙인, JPanel을 JFrame에 붙이기.
 
+```java
+import java.awt.Color;
+import java.awt.event.ActionEvent;
 
+import javax.swing.*;
+import javax.swing.JButton;
 
+public class ButtonFrame2 extends JFrame{
+	
+	private JPanel panel;
+	private static final int DEFAULT_WIDTH = 300;
+	private static final int DEFAULT_HEIGHT = 200;
+	
+	public ButtonFrame2 () {
+		
+		setSize(DEFAULT_WIDTH, DEFAULT_HEIGHT);
+		
+		panel = new JPanel();
+		
+		makeButton("Yellow", Color.YELLOW);
+		makeButton("REd", Color.RED);
+		makeButton("BLUE", Color.BLUE);
+		
+		add(panel);
+	}
+	
+  // lambda expression을 사용하여 간결하게 표현
+	public void makeButton(String name, Color backgroundColor) {
+		JButton button = new JButton(name);
+		button.addActionListener((ActionEvent event)->{
+      // backgroundColor가 외부에서 capture되어 저장된 것이다.
+			panel.setBackground(backgroundColor);
+		});
+		panel.add(button);
+	}
+}
 
-
-
-
+```
