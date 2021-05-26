@@ -298,8 +298,8 @@ public class MouseFrame extends JFrame{
 if(event.getModifierEx() & InputEvent.BUTTON3_DOWN_MASK) !=0)
 
 // shift + left mouse click test (ctrl key 눌렀을 때도 true)
-int onmask = SHIFT_DOWN_MASK | BUTTON1_DOWN_MASK
-if( (event.getModifiedEx() & onmask) == onmask
+int onmask = InputEvent.SHIFT_DOWN_MASK | InputEvent.BUTTON1_DOWN_MASK;
+if((event.getModifiersEx() & onmask) == onmask)
 ```
 
 ## AWT Event and Listener Classes
