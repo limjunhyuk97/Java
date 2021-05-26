@@ -141,8 +141,8 @@ public class ActionFrameTest {
 ### 4. Adapter
   - Listener method들을 dummy로 정의해 둔 class이다.
   - method들을 일일이 모두 정의해두기 힘드므로, adapter 사용
-  - MouseAdapter
-  - MouseMotionAdapter
+  - MouseAdapter : MouseListener에 대한 Adapter
+  - MouseMotionAdapter : MouseMotionListener에 대한 Adapter
 
 ```java
 // JComponent 확장한 MouseComponent
@@ -289,6 +289,17 @@ public class MouseFrame extends JFrame{
 		pack();
 	}
 }
+```
+
+### 5. example
+
+```java
+// right mouse click test
+if(event.getModifierEx() & InputEvent.BUTTON3_DOWN_MASK) !=0)
+
+// shift + left mouse click test (ctrl key 눌렀을 때도 true)
+int onmask = SHIFT_DOWN_MASK | BUTTON1_DOWN_MASK
+if( (event.getModifiedEx() & onmask) == onmask
 ```
 
 ## AWT Event and Listener Classes
