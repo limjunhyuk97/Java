@@ -3,7 +3,7 @@
 
 ## Swing Component
 <img src="https://user-images.githubusercontent.com/59442344/119953628-25ec8c80-bfd9-11eb-8922-b4b5e366ec7b.png" height=90% width=90%>
-  - component의 **attribute, method, event, eventListener** : 필요할 때마다, 그때 그때 찾아서 쓰자!
+  - component의 attribute, method, event, eventListener : 필요할 때마다, 그때 그때 찾아서 쓰자!
   - component 생성 -> 필요한 값 설정 -> event handler 설정
 
 ## 1. Text
