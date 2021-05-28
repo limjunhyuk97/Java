@@ -76,7 +76,7 @@ public AboutDialog extends JDialog{
 }
 ```
 
-### 2. Creare and display
+### 2. Creae and display
   - Create하고, display 한다.
   - dialog box 객체가 하나만 존재하도록 (singleton) 유지하는 것이 바람직 하다.
 
