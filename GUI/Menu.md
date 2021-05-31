@@ -78,6 +78,8 @@ optionsMenu.add(overtypeItem);
 
 ## 06. Example
 
+![menu](https://user-images.githubusercontent.com/59442344/120215360-96610b00-c270-11eb-8f64-932d4284c0bf.png)
+
 ```java
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
