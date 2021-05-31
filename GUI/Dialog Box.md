@@ -76,7 +76,7 @@ public AboutDialog extends JDialog{
 }
 ```
 
-### 2. Creae and display
+### 2. Create and display
   - Create하고, display 한다.
   - dialog box 객체가 하나만 존재하도록 (singleton) 유지하는 것이 바람직 하다.
 
@@ -92,9 +92,71 @@ JButton ok = new JButton("OK");
 ok.addActionListener(event->setVisible(false));
 ```
 
-## 03. Example
 
+## 03. File Dialogs
+  - open, save할 file을 물을 때 사용하는 dialog
 
+## 04. Example
+
+```java
+// AboutDialog class
+public class AboutDialog extends JDialog {
+	
+	// 별개의 class file로 dialog를 구현
+	public AboutDialog(JFrame owner) {
+		super(owner, "About DialogTest", true);
+		add(new JLabel(
+				"<html><h1><i>Core Java</i><h1><hr>By Jun</html>"),
+				BorderLayout.CENTER);
+		
+		// ok가 눌리면 사라지게 만드는 것.
+		JButton ok = new JButton("OK");
+		ok.addActionListener(event->setVisible(false));
+		JPanel panel = new JPanel();
+		panel.add(ok);
+		add(panel, BorderLayout.SOUTH);
+		pack();
+	}
+	
+}
+
+// DialogFrame class
+public class DialogFrame extends JFrame{
+	
+	private static final int DEFAULT_WIDTH = 300;
+	private static final int DEFAULT_HEIGHT = 200;
+	private AboutDialog dialog;
+	
+	public DialogFrame() {
+		setSize(DEFAULT_WIDTH, DEFAULT_HEIGHT);
+		
+		JMenuBar menuBar = new JMenuBar();
+		setJMenuBar(menuBar);
+		
+		JMenu fileMenu = new JMenu("File");
+		
+		// aboutItem 눌렀을 때 dialog 만들어라
+		JMenuItem aboutItem = new JMenuItem("About");
+		aboutItem.addActionListener((event)->{
+			if(dialog == null)
+				// lambda expression 속이므로, 바로 this라 구현하면 문제 발생.
+				dialog = new AboutDialog(DialogFrame.this);
+			dialog.setVisible(true);
+		});
+		fileMenu.add(aboutItem);
+		menuBar.add(fileMenu);
+
+		JMenuItem exitItem = new JMenuItem("Exit");
+		exitItem.addActionListener((event)->{
+			System.exit(0);
+		});
+		fileMenu.add(exitItem);
+		
+	}
+
+}
+
+```
 
 
 
