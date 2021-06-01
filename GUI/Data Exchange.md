@@ -51,7 +51,7 @@ public class DataExchangeFrame extends JFrame{
 	
 }
 
-// 2. PasswordChooser (panel, 자신을  dialog 생성)
+// 2. PasswordChooser (panel, 자신을 dialog 생성)
 public class PasswordChooser extends JPanel{
 	
 	private JTextField username;
