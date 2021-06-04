@@ -1,5 +1,6 @@
 # File Stream and Bianry IO
 
+
 ## 01. File and Streams
   - java는 **File**을 **sequential stream of byte(일련의 byte code 연속)로** 본다.
 
@@ -14,6 +15,7 @@
 
 ### 2. Output Stream
   - program에서 특정 source(file, socket, array, network connection, memory block)로 내보내는 byte sequence
+
 
 ## 02. Java API for Input and Output Streams
 
@@ -35,4 +37,32 @@
     - new InputStreamReader(FileInputStream 객체) : file의 input stream에서 character들을 읽어들이는 방식 
   - **FileReader**는 특정 file에 들어있는 character가 encode된 방식을 바탕으로 program에 character들을 옮겨온다.
     - Byte stream을 읽어온다
-    - 특정 파일의 encoding 방식에 따라, Byte Stream을 program의 encoding 방식에 따른 character로 바꾼다.  
+    - 특정 파일의 encoding 방식에 따라, Byte Stream을 program의 encoding 방식에 따른 character로 바꾼다. 
+
+
+## 03. Obtaining Stream
+  - Stream을 얻어오는 방식!
+
+```java
+// java.nio.file.Files
+Path path = Paths.get(filenameString);
+Path path = Path.of(filenameString);
+InputStream in = Files.newInputStream(path);
+OutputStream out = Files.newOutputStream(path);
+
+// 일반적인 방식
+InputStream in = new FileInputStream(filenameString);
+OutputStream out = new FileOutputStream(filenameString);
+
+```
+
+
+
+
+
+
+
+
+
+
+
