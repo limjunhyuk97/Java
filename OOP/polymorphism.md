@@ -19,6 +19,8 @@
 
 ### 3. [타입변환(Promotion)](https://github.com/limjunhyuk97/java_study/blob/master/OOP/Promotion.md)
 
+### 4. [Generic Programming](https://github.com/limjunhyuk97/java_study/tree/master/Generic%20programming)
+
 ## Polymorphism의 장점
   - **easily extensible한 프로그램**을 만들 수 있다 : 프로그램의 확장 시에 유용하다!
   - **simple하고 compact한 프로그램**을 만들 수 있다.
