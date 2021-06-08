@@ -1,5 +1,5 @@
 ## Generic
-  - Polymorphism의 일종이다. (다양한 타입을 지원한다.)
+  - **Polymorphism의 일종**(**Polymorphism 구현 : subtype polymorphism, generic programming**)이다. (다양한 타입을 지원한다.)
   - 같은 구성을 갖으면서, 여러 다른 type을 지원하기 위해서 만들어진 개념이다.
 
 ## Drawback of Object class
