@@ -41,7 +41,7 @@
 
 ### 3. Byte-Based, Character-Based, Scanner
   - **Byte-Based Stream 생성(FileStream 생성 -> DataStram 넣어주기) : 데이터를 byte 단위로 꺼내고 밀어넣는다.**
-    - FileInputStream, FileOutputStream
+    - FileInputStream, FileOutputStream : input으로 받은 파일의 encoding 방식으로 output 파일에서도 유지한다.
     - DataInputStream(FileInputStream 객체)
     - DataOutputStream(FileOutputStream 객체) 
   - **Character-Based Stream 넣어주기[이때, encoding 방식 정의] : 데이터를 character 단위로 꺼내고 밀어넣는다.**
