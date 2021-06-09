@@ -45,7 +45,9 @@
     - DataInputStream(FileInputStream 객체)
     - DataOutputStream(FileOutputStream 객체) 
   - **Character-Based Stream 넣어주기[이때, encoding 방식 정의] : 데이터를 character 단위로 꺼내고 밀어넣는다.**
-    - PrintWriter(파일명, encoding 방식) 
+    - PrintWriter(파일명, charset) 
+    - InputStreamReader(InputStream 하위의 Byte-based stream class 객체, charset)
+    - OutputStreamReader(OutputStream 하위의 Byte-based stream class 객체, charset)
     - **Scanner에서도** Stream에서 어떤 방식으로 꺼내올지에 대한 **encoding 방식 정의 가능**
 
 ## 03. Obtaining Stream
