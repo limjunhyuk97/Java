@@ -31,6 +31,7 @@
 
 ![Character-Based stream](https://user-images.githubusercontent.com/59442344/120752885-54bcb280-c545-11eb-992f-9c6d31ff74fe.png)
 
+  - **Byte-Based Stream 생성(FileStream 생성 -> DataStram 넣어주기) -> Character-Based Stream 넣어주기[이때, encoding 방식 정의]**
   - **InputStreamReader**는 1에서의 Byte Stream 과 character stream의 bridge 역할을 한다.
   - **InputStreamReader**는 다양한 encoding 방식을 갖는 byte stream을 character로 바꿀 수 있도록 만들어진 것이다.
     - new InputStreamReader(System.in) : 키보드에서 character들을 읽어들이는 방식
