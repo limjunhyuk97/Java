@@ -109,7 +109,7 @@ public static <E> boolean contains(Collection<E> C, Object obj){
 
 ![image](https://user-images.githubusercontent.com/59442344/121661562-493a3000-cadf-11eb-845d-f3af01fc2ca5.png)
 
-  - Map : key/value pair를 다룬다.
+  - Map : key/value pair를 다룬다. **Collection interface와 별도의 hierarchy를 갖는다.**
   - List : Ordered collection, Duplication allowed
   - Set : Unordered collection, without Duplication 
   - SortedSet/ SortedMap : element/ key 값이 sort된 순서로 traverse 가능하도록
