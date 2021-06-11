@@ -31,7 +31,7 @@
 
 ## 03. Collection Interface - Iterators
 
-### 1. iterator 란
+### 1. Iterator 란
   - generic interface이다.
   - **collection의 종류, implementation에 관계없이 내부를 traverse할 수 있도록 해준다.**
   - 단방향, 양방향 traverse
@@ -62,13 +62,23 @@ for(String element : c){
 }
 ```
 
-### 2. iterator의 사용
+### 2. Iterator의 사용
   - collection type에 따라서(어떤 collection인지에 따라) element가 불려오는 순서가 다르다.
   - 내부적 구현이 어떤지 간에, **iterator가 현재 존재하는 위치에 대해 'element의 사이에 있다' 라고 생각하는 것이 좋다.**
     - next()로 반환하는 원소 : iterator 다음으로 존재하는 element
     - remove()로 삭제하는 원소 : iterator 이전에 존재하는 원소
 
 ![image](https://user-images.githubusercontent.com/59442344/121659546-5fdf8780-cadd-11eb-85ce-43af8374e16e.png)
+
+
+### 3. ListIterator
+  - **ListIterator\<E> extends Iterator\<E>**
+  - **양방향 traverse** 가능
+  - Iterator에서 추가된 method
+    - **void add(E element)**
+    - **E previous()**
+    - **boolean hasPrevious()**
+    - **void set(E element)**
 
 
 ## 04. Generic Utiliy Methods
