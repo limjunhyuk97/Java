@@ -29,7 +29,7 @@
       - **Index를 사용는 array에서든, reference를 사용하는 linked list에서든 'traverse'할 수 있도록 지원해 준다.**
 
 
-## 03. Collection Interface - Iterators
+## 03. Collection Interface - [Iterators]
 
 ### 1. Iterator 란
   - generic interface이다.
@@ -71,7 +71,7 @@ for(String element : c){
 ![image](https://user-images.githubusercontent.com/59442344/121659546-5fdf8780-cadd-11eb-85ce-43af8374e16e.png)
 
 
-### 3. ListIterator
+### 3. ListIterator의 사용
   - **ListIterator\<E> extends Iterator\<E>**
   - **양방향 traverse** 가능
   - Iterator에서 추가된 method
@@ -81,7 +81,7 @@ for(String element : c){
     - **void set(E element)**
 
 
-## 04. Generic Utiliy Methods
+## 04. Generic Utiliy Methods - [Algorithms]
   - Collection, Iterator interface를 통하여 다양한 generic한 utility method를 만들 수 있다.
   - **Collection interface내 method**와 **Collections class의 static method**로 useful method를 제공한다.
     - int size()
@@ -103,6 +103,12 @@ public static <E> boolean contains(Collection<E> C, Object obj){
   return false;
 }
 ```
+
+### 1. Algorithms
+  - **Collections class**에 collection element들을 다루기 위한 high performance algorithm이 구현되어 있다.
+  - 이런 algorithm들은 **static method**로 구현되어 있다.
+  - Collections class에 별도로 algorithm이 구현되어 있는 이유는, 몇몇 collection 들에서 공통으로 사용될 수 있는 기능들에 대해 따로따로 구현해 넣는 번거로움을 피하기 위해서이다. 또한 collection framework에 존재하는 class들마다 class가 갖고 있는 element들에 대한 연산을 진행하는 방식이 다르기 때문에 필요한 때마다 Common class를 만들어 method를 정의하는 방식도 복잡하기 때문이다.
+  - algorithm을 구현하는 방식에 iterator가 개입한다. 각 Collection framework에 존재하는 concrete class들은 각자에게 적용되는 고유한 iterator를 갖고 있는데, algorithm은 각 concrete class의 element가 존재하는 형식에 특화된 맞춤 서비스를 제공하는 형식으로 존재하지 않고, iterator를 매개로 하여 각 concrete class에게 필요하면서 다른 concrete class들에게도 필요한 중복된 내용에 대해서 서비스를 제공한다. (iterator가 algorithm과 class 사이의 interface 역할을 한다.)
 
 
 ## 05. Interfaces (in Framework)
