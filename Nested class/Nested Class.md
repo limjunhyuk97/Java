@@ -1,28 +1,30 @@
 # Nested class
 
-![inner_classes](https://user-images.githubusercontent.com/59442344/116960616-e7b2c480-acdb-11eb-9970-2c24d3378042.jpg)
-
+![image](https://user-images.githubusercontent.com/59442344/122056152-4a8f9380-ce24-11eb-90f7-6727273be2dd.png)
 
 ## Nested class의 종류
  
 ### 1. member class
-  - static member class
-  - instance member class
-### 2. local class
+  - static nested class
+  - non-static nested class
+### 2. inner class
+  - inner class
   - local inner class
   - local anonymous inner class
 
 ```java
+package nestedClass;
+
 public class NestedExample {
 	
-	// outerclass instance field
+	// outerclass field
 	public int universalField;
   
-  // outerclass static instance field
-  public static int universalStaticField;
+  	// outerclass static field
+ 	public static int universalStaticField;
 	
 	
-	// static member class
+	// (static nested class) static member class
 	public static class A{
 		public int field1;
 		public static String field2;
@@ -39,10 +41,10 @@ public class NestedExample {
 
 	
 	
-	// instance inner class 
+	// (non-static nested class) inner class 
 	public class B{
 		public int field1;
-		// public static int field2;
+		// 불가능 : public static int field2;
 		
 		public B() {}
 		
@@ -50,33 +52,50 @@ public class NestedExample {
 			System.out.println("I'm instance member class!");
 			System.out.println(universalField);
 		}
-		// public static void method2() {}
+		// 불가능 : public static void method2() {}
 	}
 	
 	
 	
-	// local inner class In Instance method
+	// local inner class In non-static method
 	public void outermethod1() {
 		
 		// local inner class
 		class C{
 			int field1;
-			// static int field2;
+			// 불가능 : static int field2;
+			// The field field2 cannot be declared static in a non-static inner type, unless initialized with a constant expression
 			
 			C(){}
 			
 			void method1() {}
-			// static void method2() {}
+			// 불가능 : static void method2() {}
+			// 이유 : The method method2 cannot be declared static; static methods can only be declared in a static or top level type
 		}
 		
 	}
 	
-	// local anonymous
+	public static void printThis(String str, PrintString print) {
+		print.printIt(str);
+	}
+	
 	public static void main(String[] args) {
-		method(new NestedExample());
+
+		// local Anonymous inner class
+		printThis("WoW", new PrintString() {
+			public void printIt(String str) {
+				System.out.println(str);
+			}
+		});
+		
 	}
 	
 }
+
+interface PrintString{
+	public void printIt(String str);
+}
+
 ```
 
 
